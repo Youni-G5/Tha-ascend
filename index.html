@@ -1,0 +1,358 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowUpRight, Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+
+// --- CURSEUR PERSONNALISÉ (Désactivé sur mobile via CSS) ---
+const CustomCursor = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const updateMousePosition = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    const handleMouseOver = (e) => {
+      if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button' || e.target.closest('.hover-trigger')) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mouseover', handleMouseOver);
+
+    return () => {
+      window.removeEventListener('mousemove', updateMousePosition);
+      window.removeEventListener('mouseover', handleMouseOver);
+    };
+  }, []);
+
+  return (
+    <>
+      <div 
+        className="cursor-dot hidden md:block fixed top-0 left-0 w-4 h-4 bg-zinc-950 rounded-full pointer-events-none z-[100] transition-transform duration-100 ease-out mix-blend-difference"
+        style={{ 
+          transform: `translate3d(${mousePosition.x - 8}px, ${mousePosition.y - 8}px, 0) scale(${isHovering ? 2.5 : 1})`,
+          backgroundColor: 'white'
+        }}
+      />
+      <div 
+        className="cursor-outline hidden md:block fixed top-0 left-0 w-10 h-10 border border-zinc-500 rounded-full pointer-events-none z-[99] transition-all duration-300 ease-out"
+        style={{ 
+          transform: `translate3d(${mousePosition.x - 20}px, ${mousePosition.y - 20}px, 0) scale(${isHovering ? 0 : 1})`,
+          opacity: isHovering ? 0 : 1
+        }}
+      />
+    </>
+  );
+};
+
+// --- ANIMATION AU SCROLL (Améliorée) ---
+const Reveal = ({ children, className = "", delay = 0, type = "fade-up" }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const styles = {
+    "fade-up": isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20",
+    "scale-up": isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
+    "slide-right": isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20",
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${styles[type]} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeService, setActiveService] = useState(null);
+
+  // Les services Shopify avec des couleurs/gradients distincts pour l'effet visuel
+  const services = [
+    {
+      id: '01',
+      title: "Thèmes Sur Mesure",
+      desc: "Création de A à Z. Fini les templates rigides. Nous construisons une identité unique, rapide et pensée pour votre marque.",
+      gradient: "from-zinc-200 to-zinc-400"
+    },
+    {
+      id: '02',
+      title: "Refonte & Conversion",
+      desc: "Audit UX/UI et restructuration complète. Nous transformons votre trafic en acheteurs avec des parcours optimisés.",
+      gradient: "from-zinc-800 to-zinc-950"
+    },
+    {
+      id: '03',
+      title: "Fonctionnalités Avancées",
+      desc: "Bundles dynamiques, quiz personnalisés, intégrations API complexes. Repoussez les limites natives de Shopify.",
+      gradient: "from-zinc-400 to-zinc-600"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#EBEBEB] text-zinc-950 font-sans selection:bg-zinc-950 selection:text-white cursor-none md:cursor-auto overflow-x-hidden">
+      <CustomCursor />
+      
+      {/* NAVIGATION - Minimaliste absolue */}
+      <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white py-6">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-start">
+          <a href="#" className="hover-trigger flex flex-col uppercase tracking-tighter text-xl font-bold leading-none">
+            <span>Tha</span>
+            <span>Ascend<span className="text-zinc-500">.</span></span>
+          </a>
+          
+          <button 
+            className="hover-trigger uppercase text-xs font-medium tracking-[0.2em] flex items-center gap-2 hover:opacity-70 transition-opacity"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? 'Fermer' : 'Menu'}
+          </button>
+        </div>
+      </nav>
+
+      {/* MENU FULLSCREEN */}
+      <div className={`fixed inset-0 bg-zinc-950 text-white z-40 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-center items-center ${isMobileMenuOpen ? 'clip-path-full opacity-100' : 'clip-path-zero opacity-0 pointer-events-none'}`}
+           style={{ clipPath: isMobileMenuOpen ? 'circle(150% at 100% 0)' : 'circle(0% at 100% 0)' }}>
+        <div className="flex flex-col gap-8 text-center">
+            {['Expertise', 'Approche', 'Services', 'Contact'].map((item, i) => (
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)} 
+                 className="hover-trigger text-5xl md:text-8xl font-light uppercase tracking-tighter hover:italic transition-all duration-300 transform hover:translate-x-4">
+                {item}
+              </a>
+            ))}
+        </div>
+      </div>
+
+      {/* HERO SECTION - Immense, Cinématographique */}
+      <section className="relative h-screen w-full flex flex-col justify-end pb-12 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 blur-xl">
+          <div className="w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-tr from-zinc-500 to-zinc-900 animate-pulse"></div>
+        </div>
+        
+        <Reveal delay={200}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 z-10 relative">
+            <h1 className="text-[16vw] md:text-[10vw] leading-[0.8] font-medium tracking-tighter uppercase">
+              Shopify <br />
+              <span className="italic font-light text-zinc-500">Excellence.</span>
+            </h1>
+            
+            <div className="max-w-sm mb-4 md:mb-8">
+              <p className="text-lg md:text-xl font-medium mb-6">
+                L'agence e-commerce qui allie design de classe mondiale et performances de conversion chirurgicales.
+              </p>
+              <a href="#contact" className="hover-trigger inline-flex items-center gap-2 border-b-2 border-zinc-950 pb-1 text-sm uppercase tracking-widest font-bold hover:gap-4 transition-all">
+                Démarrer un projet <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* TICKER MASSIVE */}
+      <section className="py-12 bg-zinc-950 text-white overflow-hidden border-y border-zinc-800">
+        <div className="flex whitespace-nowrap animate-[scroll_15s_linear_infinite]">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex items-center gap-8 mx-4">
+              <span className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}>
+                DESIGN. DEVELOP. SCALE.
+              </span>
+              <Sparkles size={48} className="text-zinc-600" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* EXPERTISE SHOPIFY (Hover Interactions) */}
+      <section id="expertise" className="py-32 md:py-48 px-6 md:px-12 max-w-[1400px] mx-auto relative">
+        <Reveal>
+          <p className="uppercase tracking-[0.2em] text-xs font-bold mb-16 flex items-center gap-4">
+            <span className="w-8 h-px bg-zinc-950"></span>
+            Notre Cœur d'Expertise
+          </p>
+        </Reveal>
+
+        <div className="relative border-t border-zinc-300">
+          {services.map((service, index) => (
+            <div 
+              key={service.id}
+              className="hover-trigger group border-b border-zinc-300 py-12 md:py-16 relative cursor-pointer"
+              onMouseEnter={() => setActiveService(index)}
+              onMouseLeave={() => setActiveService(null)}
+            >
+              {/* Image Reveal on Hover (Desktop only) */}
+              <div className={`hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[250px] rounded-lg bg-gradient-to-br ${service.gradient} shadow-2xl pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 ${activeService === index ? 'opacity-100 scale-100 rotate-2' : 'opacity-0 scale-90 -rotate-2'}`}>
+                {/* Mockup UI effect */}
+                <div className="absolute top-4 left-4 right-4 h-6 bg-white/20 rounded backdrop-blur-sm"></div>
+                <div className="absolute top-14 left-4 w-1/3 h-32 bg-white/10 rounded backdrop-blur-sm"></div>
+                <div className="absolute top-14 right-4 w-1/2 h-12 bg-white/10 rounded backdrop-blur-sm"></div>
+              </div>
+
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between relative z-20 transition-transform duration-500 group-hover:translate-x-4">
+                <div className="flex items-baseline gap-6 lg:gap-12 mb-6 lg:mb-0">
+                  <span className="text-sm md:text-lg font-light text-zinc-400">/{service.id}</span>
+                  <h3 className="text-4xl md:text-6xl font-medium tracking-tight uppercase">
+                    {service.title}
+                  </h3>
+                </div>
+                <div className="lg:max-w-sm">
+                  <p className="text-lg text-zinc-600 transition-colors duration-500 group-hover:text-zinc-950">
+                    {service.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* STICKY APPROACH SECTION */}
+      <section id="approche" className="relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Left: Sticky Headline */}
+          <div className="bg-zinc-950 text-white p-6 md:p-12 lg:h-screen lg:sticky top-0 flex flex-col justify-center">
+            <Reveal type="slide-right">
+              <span className="uppercase tracking-[0.2em] text-xs font-bold mb-8 text-zinc-500 block">L'Approche</span>
+              <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9]">
+                L'esthétique <br/>
+                <span className="italic font-light text-zinc-400">rencontre</span> <br/>
+                la conversion.
+              </h2>
+              <p className="mt-8 text-xl text-zinc-400 max-w-md font-light">
+                Nous fusionnons une direction artistique primée avec une ingénierie front-end de pointe pour dominer votre marché.
+              </p>
+            </Reveal>
+          </div>
+          
+          {/* Right: Scrolling Content */}
+          <div className="bg-[#EBEBEB] p-6 md:p-12 lg:py-32 flex flex-col gap-32">
+            {[
+              { num: '01', title: 'Design Sans Compromis', text: 'Chaque pixel est pensé pour refléter l\'ADN premium de votre marque. Fini les interfaces qui se ressemblent toutes. Nous créons des expériences mémorables.' },
+              { num: '02', title: 'Performance Radicale', text: 'Un design incroyable ne sert à rien s\'il est lent. Nous développons des architectures Shopify ultra-légères. Des temps de chargement instantanés pour un SEO maximisé.' },
+              { num: '03', title: 'Focus Business', text: 'Nos décisions créatives et techniques sont dictées par une seule métrique : votre chiffre d\'affaires. L\'UX est pensée pour fluidifier le tunnel d\'achat et augmenter le panier moyen.' }
+            ].map((step, idx) => (
+              <Reveal key={step.num} delay={100 * idx}>
+                <div className="flex flex-col gap-6">
+                  <div className="text-8xl font-black text-zinc-200 tracking-tighter leading-none">{step.num}</div>
+                  <h4 className="text-3xl md:text-4xl font-medium">{step.title}</h4>
+                  <p className="text-xl text-zinc-600 leading-relaxed font-light max-w-lg">
+                    {step.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECONDARY SERVICES (STATIC SITES) - Brutalist / Tech vibe */}
+      <section id="services" className="py-32 md:py-48 px-6 md:px-12 bg-white relative">
+        <div className="max-w-[1400px] mx-auto">
+          <Reveal>
+            <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+              <div className="md:w-1/2">
+                <p className="uppercase tracking-[0.2em] text-xs font-bold mb-8 text-zinc-400 flex items-center gap-4">
+                  <span className="w-8 h-px bg-zinc-400"></span>
+                  Au-delà de Shopify
+                </p>
+                <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8">
+                  Sites Statiques <br/>
+                  <span className="text-zinc-300">Modernes.</span>
+                </h2>
+                <a href="#contact" className="hover-trigger inline-flex items-center justify-center w-32 h-32 rounded-full border border-zinc-200 text-sm font-bold uppercase hover:bg-zinc-950 hover:text-white transition-colors duration-500">
+                  Découvrir
+                </a>
+              </div>
+              
+              <div className="md:w-1/2 flex flex-col gap-8 text-xl font-light text-zinc-600">
+                <p>
+                  Pour les agences, les portfolios et les entreprises B2B nécessitant une vitrine institutionnelle irréprochable.
+                </p>
+                <p>
+                  Nous développons des écosystèmes Headless et des sites statiques (React, Next.js) offrant une sécurité absolue, un SEO technique parfait et des animations WebGL dignes des plus grandes agences.
+                </p>
+                
+                <div className="pt-8 border-t border-zinc-200 flex flex-wrap gap-4 mt-8">
+                  {['React', 'Next.js', 'Framer Motion', 'Tailwind', 'Headless CMS'].map(tech => (
+                    <span key={tech} className="px-4 py-2 border border-zinc-200 rounded-full text-sm">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FOOTER MASSIVE CALL TO ACTION */}
+      <footer id="contact" className="bg-zinc-950 text-white pt-32 md:pt-48 pb-12 px-6 md:px-12 overflow-hidden flex flex-col relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-zinc-800/20 via-zinc-950 to-zinc-950 pointer-events-none"></div>
+        
+        <div className="max-w-[1400px] mx-auto w-full relative z-10 flex-grow flex flex-col justify-between">
+          <Reveal>
+            <p className="text-zinc-400 text-xl font-light mb-8">Vous avez un projet ambitieux ?</p>
+            {/* Huge Text CTA */}
+            <a href="mailto:hello@thaascend.com" className="hover-trigger group block w-fit">
+              <h2 className="text-[12vw] leading-[0.8] font-medium tracking-tighter uppercase group-hover:text-zinc-400 transition-colors">
+                Let's Talk <br/>
+                <span className="flex items-center gap-4 md:gap-8 italic font-light">
+                  Business 
+                  <span className="inline-flex justify-center items-center w-[10vw] h-[10vw] max-w-[100px] max-h-[100px] rounded-full bg-white text-zinc-950 group-hover:rotate-45 transition-transform duration-500">
+                    <ArrowUpRight className="w-1/2 h-1/2" />
+                  </span>
+                </span>
+              </h2>
+            </a>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-32 md:mt-48 pt-8 border-t border-zinc-800 text-sm font-light text-zinc-400">
+            <div>
+              <p className="font-medium text-white mb-4 uppercase tracking-widest text-xs">Tha Ascend INC.</p>
+              <p>Expertise E-commerce & Design</p>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <p className="font-medium text-white mb-4 uppercase tracking-widest text-xs">Socials</p>
+              <a href="#" className="hover:text-white transition-colors hover-trigger w-fit">Instagram</a>
+              <a href="#" className="hover:text-white transition-colors hover-trigger w-fit">LinkedIn</a>
+              <a href="#" className="hover:text-white transition-colors hover-trigger w-fit">Awwwards</a>
+            </div>
+            
+            <div className="md:text-right">
+              <p>&copy; {new Date().getFullYear()} Tous droits réservés.</p>
+              <p className="mt-2">Montréal / Paris / Remote</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Global styles for custom logic */}
+      <style dangerouslySetInnerHTML={{__html: `
+        html { scroll-behavior: smooth; }
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}} />
+    </div>
+  );
+}
