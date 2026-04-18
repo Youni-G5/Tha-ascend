@@ -138,6 +138,7 @@
         }
         .btn-cta:hover::before { left: 0; }
         .btn-cta:hover { color: white; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="antialiased">
@@ -156,34 +157,34 @@
             <a href="#contact" class="hidden md:flex text-primary items-center gap-2 border border-primary/20 rounded-full px-5 py-2 text-sm font-medium hover:bg-primary-light transition-colors">
                 Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
-            <button id="mobile-menu-btn" class="md:hidden text-gray-700" aria-label="Ouvrir le menu">
+            <button id="mobile-menu-button" class="md:hidden text-gray-700" aria-label="Ouvrir le menu">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto bg-white rounded-2xl px-6 py-4 mt-2 border border-gray-200 shadow-md flex flex-col gap-3 text-sm font-medium relative z-20">
-            <a href="#architectures" class="hover:text-primary transition-colors py-2 border-b border-gray-100">Architectures</a>
-            <a href="#plugins" class="hover:text-primary transition-colors py-2 border-b border-gray-100">Hub Plugins</a>
-            <a href="#expertises" class="hover:text-primary transition-colors py-2 border-b border-gray-100">Expertises</a>
-            <a href="#contact" class="hover:text-primary transition-colors py-2 border-b border-gray-100">Contact</a>
-            <a href="#contact" class="text-primary border border-primary/20 rounded-full px-5 py-2 text-center hover:bg-primary-light transition-colors mt-2">
-                Démarrer un projet →
-            </a>
+        <div id="mobile-menu" class="hidden max-w-7xl mx-auto mt-3 bg-white rounded-3xl border border-gray-200 shadow-sm p-4 md:hidden">
+            <div class="flex flex-col gap-3 text-sm font-medium">
+                <a href="#architectures" class="hover:text-primary transition-colors">Architectures</a>
+                <a href="#plugins" class="hover:text-primary transition-colors">Hub Plugins</a>
+                <a href="#expertises" class="hover:text-primary transition-colors">Expertises</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10 reveal">
-            <div class="flex flex-col md:flex-row items-start justify-between gap-10">
-                <div class="max-w-3xl">
+        <div class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10">
+            <div class="flex flex-col md:flex-row items-start justify-between gap-12">
+                <div class="max-w-3xl reveal">
                     <p class="text-primary font-bold tracking-wider text-sm md:text-base mb-4 uppercase">Agence d'ingénierie e-commerce premium</p>
                     <h1 class="font-heading font-black text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-outline-purple mb-6">
                         ON NE VEND PAS<br>DE SIMPLES THÈMES
                     </h1>
                     <p class="text-gray-700 text-lg max-w-xl font-medium leading-relaxed mb-8">
-                        Nous concevons des architectures sur-mesure, optimisées pour la vitesse, le design et la conversion. Prenez le contrôle de votre boutique.
+                        Nous concevons des architectures sur-mesure, optimisées pour la vitesse, le design et la conversion. Prenez le contrôle de votre croissance.
                     </p>
-                    <a href="#contact" class="inline-flex items-center gap-2 border border-primary text-primary rounded-full px-6 py-3 font-medium hover:bg-primary hover:text-white transition-colors bg-white btn-cta">
-                        Parler de votre projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#architectures" class="btn-cta inline-flex items-center gap-2 border border-primary text-primary rounded-full px-6 py-3 font-medium bg-white transition-colors">Voir les forfaits <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <a href="#expertises" class="inline-flex items-center gap-2 border border-gray-300 rounded-full px-6 py-3 font-medium hover:bg-white transition-colors">Explorer les expertises</a>
+                    </div>
                 </div>
-                <div class="hidden md:block w-[500px] h-[400px] relative -mt-10">
+                <div class="hidden md:block w-[500px] h-[400px] relative -mt-10 reveal">
                     <svg viewBox="0 0 500 400" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M100 150 L350 100 L350 300 L100 350 Z" fill="#fff" stroke="#111" stroke-width="2"/>
                         <rect x="120" y="180" width="40" height="60" fill="#8571ff" stroke="#111" stroke-width="2"/>
@@ -192,106 +193,122 @@
                         <path d="M380 200 C450 200 450 300 380 300 L380 280 C420 280 420 220 380 220 Z" fill="#eaddff" stroke="#111" stroke-width="2"/>
                         <path d="M380 200 L360 200 L360 220 L380 220 Z" fill="#8571ff" stroke="#111" stroke-width="2"/>
                         <path d="M380 280 L360 280 L360 300 L380 300 Z" fill="#8571ff" stroke="#111" stroke-width="2"/>
+                        <path d="M300 250 L310 240 L320 250 L310 260 Z" fill="#fff" stroke="#111" stroke-width="1.5"/>
+                        <path d="M260 220 L265 215 L270 220 L265 225 Z" fill="#fff" stroke="#111" stroke-width="1.5"/>
                     </svg>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="architectures"></div>
-    <div class="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-20 reveal">
+    <section id="architectures" class="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-20 reveal">
         <h2 class="font-heading font-black text-4xl md:text-5xl lg:text-6xl uppercase leading-tight">
             <span class="text-outline-gray">VOS ARCHITECTURES SUR-MESURE</span><br>
             <span class="text-outline-gray">POUR </span><span class="text-filled-purple-3d">SCALER VITE</span>
         </h2>
-    </div>
+    </section>
 
-    <div class="max-w-7xl mx-auto px-4 md:px-8 mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-        <div class="reveal bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full">
+    <section class="max-w-7xl mx-auto px-4 md:px-8 mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+        <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
             <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">X</div>
             <h3 class="font-heading font-bold text-2xl mb-2">BORN X</h3>
             <p class="text-primary font-bold text-sm mb-4">La Fondation (400€)</p>
-            <div class="text-gray-600 mb-8 flex-grow text-sm">Idéal pour se lancer. Inclut 3 pages sur-mesure, design responsive, intégration paiement/hébergement et formulaire basique.</div>
+            <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Idéal pour se lancer. Inclut 3 pages sur-mesure, design responsive, intégration paiement/hébergement, et formulaire basique. (0 plugin offert).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
-        <div class="reveal bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full">
+        <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
             <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">Y</div>
             <h3 class="font-heading font-bold text-2xl mb-2">EVOLVE Y</h3>
             <p class="text-primary font-bold text-sm mb-4">Le Standard (990€)</p>
-            <div class="text-gray-600 mb-8 flex-grow text-sm">Pour les marques qui scalent. 5 pages, maquettage UI sur Figma, mise en ligne du contenu et sections produits personnalisées.</div>
+            <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour les marques qui scalent. 5 pages, maquettage UI sur Figma, mise en ligne du contenu, sections produits personnalisées. (2 plugins offerts).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
-        <div class="reveal bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full">
+        <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
             <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">Z</div>
             <h3 class="font-heading font-bold text-2xl mb-2">ASCEND Z</h3>
             <p class="text-primary font-bold text-sm mb-4">L'Écosystème (1800€)</p>
-            <div class="text-gray-600 mb-8 flex-grow text-sm">Pour des performances extrêmes. 10 pages, optimisation vitesse maximale, Shopify OS 2.0 et configuration d'apps tierces.</div>
+            <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour des performances extrêmes. 10 pages, optimisation de la vitesse max, Shopify OS 2.0, configuration d'apps tierces. (4 plugins offerts).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
-    </div>
+    </section>
 
-    <div class="max-w-7xl mx-auto px-4 md:px-8 mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
-        <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4" data-target="22">22</h3>
+    <section class="max-w-7xl mx-auto px-4 md:px-8 mt-20 relative reveal">
+        <div class="absolute -top-10 -left-6 w-16 h-16 bg-white border border-gray-200 rounded-full flex items-center justify-center z-10 shadow-sm">
+            <span class="text-xs font-bold text-primary text-center leading-tight">100%<br>Proprio</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 font-heading font-bold text-2xl">
+            <div class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-8 h-8"></i> Shopify Plus</div>
+            <div class="flex items-center gap-2"><i data-lucide="figma" class="w-8 h-8"></i> Figma</div>
+            <div class="border border-gray-400 px-4 py-2 font-serif text-sm tracking-widest uppercase">Web Vitals</div>
+            <div class="flex items-center gap-2"><i data-lucide="credit-card" class="w-8 h-8"></i> Stripe</div>
+            <div class="flex items-center gap-2"><i data-lucide="code-2" class="w-8 h-8"></i> Liquid OS</div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 md:px-8 mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10 reveal">
+            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4 counter" data-target="22">0</h3>
             <p class="font-medium text-gray-800 text-lg">Modules d'intégration<br>dans notre catalogue</p>
         </div>
-        <div class="bg-gradient-to-br from-white to-primary-light rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/20">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4" data-target="3">3</h3>
+        <div class="bg-gradient-to-br from-white to-primary-light rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/20 reveal">
+            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4 counter" data-target="3">0</h3>
             <p class="font-medium text-gray-800 text-lg">Niveaux d'expertise<br>pour vos plugins</p>
         </div>
-        <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4" data-target="100" data-suffix="%">100%</h3>
+        <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10 reveal">
+            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4">100%</h3>
             <p class="font-medium text-gray-800 text-lg">Propriétaire de<br>votre code à vie</p>
         </div>
-    </div>
+    </section>
 
-    <div id="expertises"></div>
-    <div class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
+    <section class="max-w-7xl mx-auto px-4 md:px-8 mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center" id="expertises">
+        <div class="relative flex justify-center bg-purple-glow reveal">
+            <div class="w-[80%] md:w-[70%] rounded-[3rem] overflow-hidden border-2 border-primary/20 relative z-10">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800&h=1000" alt="Code et design" class="w-full h-auto object-cover grayscale mix-blend-multiply">
+                <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+            </div>
+        </div>
+        <div class="reveal">
+            <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-8">
+                <span class="text-outline-gray">L'ÉQUIVALENT D'UN</span><br>
+                <span class="text-outline-gray">CABINET D'ARCHITECTES</span><br>
+                <span class="text-filled-purple-3d">POUR LE E-COMMERCE</span>
+            </h2>
+            <p class="text-gray-700 mb-6 font-medium leading-relaxed">Vous avez de l'ambition, nous avons l'infrastructure. Nous prenons nos clients par la main pour leur offrir une base technique irréprochable.</p>
+            <p class="text-gray-700 mb-10 font-medium leading-relaxed">Tha Ascend crée votre moteur de vente de A à Z, puis le personnalise avec des options avancées pour maximiser vos revenus et votre CRO.</p>
+            <a href="#plugins" class="inline-flex items-center gap-2 border border-primary text-primary rounded-full px-6 py-3 font-medium hover:bg-primary hover:text-white transition-colors">Découvrez nos plugins <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
         <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-12">
             <span class="text-outline-gray">BEYOND THE BOX: NOS</span><br>
             <span class="text-outline-gray">AUTRES </span><span class="text-filled-purple-3d">EXPERTISES</span>
         </h2>
         <div class="relative">
-            <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-12 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-primary shadow-sm z-10 hover:bg-gray-50" aria-label="Précédent">
+            <button id="portfolio-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-12 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-primary shadow-sm z-10 hover:bg-gray-50">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i>
             </button>
-            <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-12 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-primary shadow-sm z-10 hover:bg-gray-50" aria-label="Suivant">
+            <button id="portfolio-next" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-12 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-primary shadow-sm z-10 hover:bg-gray-50">
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </button>
-            <div id="expertise-carousel" class="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x">
+            <div id="portfolio-carousel" class="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x scroll-smooth">
                 <div class="min-w-[300px] md:min-w-[350px] bg-white rounded-3xl p-4 border border-gray-200 shadow-sm snap-center">
-                    <div class="rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-square relative">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Code sur-mesure" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-2">
-                        <h4 class="font-bold mb-1">Architecture Headless</h4>
-                        <p class="text-xs text-gray-500 mb-3">Migrations depuis Prestashop, Magento vers Shopify OS 2.0.</p>
-                    </div>
+                    <div class="rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-square relative"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Code sur mesure" class="w-full h-full object-cover"></div>
+                    <div class="px-2 pb-2"><h4 class="font-bold mb-1">Architecture Headless</h4><p class="text-xs text-gray-500 mb-3">Migrations depuis Prestashop, Magento vers Shopify OS 2.0.</p><a href="#contact" class="inline-flex items-center gap-2 border border-primary/30 text-primary rounded-full px-4 py-1.5 text-sm font-medium bg-primary-light/50">Le Sur-Mesure <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a></div>
                 </div>
                 <div class="min-w-[300px] md:min-w-[350px] bg-white rounded-3xl p-4 border border-gray-200 shadow-sm snap-center">
-                    <div class="rounded-2xl overflow-hidden mb-4 bg-primary aspect-square flex items-center justify-center">
-                        <i data-lucide="figma" class="w-24 h-24 text-white"></i>
-                    </div>
-                    <div class="px-2 pb-2">
-                        <h4 class="font-bold mb-1">Redesign UI/UX</h4>
-                        <p class="text-xs text-gray-500 mb-3">Audit de votre boutique et amélioration de l'interface via Figma.</p>
-                    </div>
+                    <div class="rounded-2xl overflow-hidden mb-4 bg-primary aspect-square flex items-center justify-center"><i data-lucide="figma" class="w-24 h-24 text-white"></i></div>
+                    <div class="px-2 pb-2"><h4 class="font-bold mb-1">Redesign UI/UX</h4><p class="text-xs text-gray-500 mb-3">Audit de votre boutique et amélioration de l'interface via Figma.</p><a href="#contact" class="inline-flex items-center gap-2 border border-primary/30 text-primary rounded-full px-4 py-1.5 text-sm font-medium bg-primary-light/50">Les Refontes <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a></div>
                 </div>
                 <div class="min-w-[300px] md:min-w-[350px] bg-white rounded-3xl p-4 border border-gray-200 shadow-sm snap-center">
-                    <div class="rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-square relative">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Analytics" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <div class="px-2 pb-2">
-                        <h4 class="font-bold mb-1">Bases pré-optimisées</h4>
-                        <p class="text-xs text-gray-500 mb-3">Idéal pour tester un marché rapidement avant de scaler.</p>
-                    </div>
+                    <div class="rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-square relative"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Analytics e-commerce" class="w-full h-full object-cover"></div>
+                    <div class="px-2 pb-2"><h4 class="font-bold mb-1">Bases pré-optimisées</h4><p class="text-xs text-gray-500 mb-3">Idéal pour tester un marché rapidement avant de scaler.</p><a href="#contact" class="inline-flex items-center gap-2 border border-primary/30 text-primary rounded-full px-4 py-1.5 text-sm font-medium bg-primary-light/50">Starter Templates <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="plugins"></div>
-    <div class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
+    <section id="plugins" class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
         <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-6 text-center md:text-left">
             <span class="text-outline-gray">LE HUB D'INTÉGRATIONS</span><br>
             <span class="text-filled-purple-3d">VOS 22 PLUGINS</span>
@@ -300,157 +317,175 @@
         <div class="relative max-w-5xl mx-auto">
             <div class="timeline-line hidden md:block"></div>
             <div class="flex flex-col md:flex-row items-center justify-between mb-20 relative z-10">
-                <div class="w-full md:w-[45%] flex justify-end">
-                    <div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm">
-                        <span class="text-outline-gray text-6xl font-heading font-black">1</span>
-                        <div><h3 class="font-bold text-xl">Niveau 1</h3><p class="text-gray-600">Les Essentiels</p></div>
-                    </div>
-                </div>
-                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium">
-                    Pop-up d'acquisition, panier tiroir, barre de livraison dynamique, fil d'Ariane SEO et lightbox optimisée.
-                </div>
+                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">1</span><div><h3 class="font-bold text-xl">Niveau 1</h3><p class="text-gray-600">Les Essentiels</p></div></div></div>
+                <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium"><strong class="text-black">Pop-up d'acquisition</strong>, <strong class="text-black">Panier tiroir</strong>, <strong class="text-black">Barre de livraison</strong>, <strong class="text-black">Fil d'Ariane</strong> et <strong class="text-black">Lightbox</strong> optimisée.</div>
             </div>
             <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-20 relative z-10">
-                <div class="w-full md:w-[45%] flex justify-start">
-                    <div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm">
-                        <span class="text-outline-gray text-6xl font-heading font-black">2</span>
-                        <div><h3 class="font-bold text-xl">Niveau 2</h3><p class="text-gray-600">Les Avancés</p></div>
-                    </div>
-                </div>
-                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium md:text-right">
-                    Cross-selling natif, filtres avancés, préchargement de pages, custom reviews et upsell post-achat.
-                </div>
+                <div class="w-full md:w-[45%] flex justify-start"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">2</span><div><h3 class="font-bold text-xl">Niveau 2</h3><p class="text-gray-600">Les Avancés</p></div></div></div>
+                <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium md:text-right"><strong class="text-black">Cross-selling</strong>, <strong class="text-black">Filtres de collection</strong>, <strong class="text-black">Préchargement</strong>, <strong class="text-black">Custom Reviews</strong> et <strong class="text-black">Upsell post-achat</strong>.</div>
             </div>
             <div class="flex flex-col md:flex-row items-center justify-between relative z-10">
-                <div class="w-full md:w-[45%] flex justify-end">
-                    <div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm">
-                        <span class="text-outline-gray text-6xl font-heading font-black">3</span>
-                        <div><h3 class="font-bold text-xl">Niveau 3</h3><p class="text-gray-600">Le Premium</p></div>
-                    </div>
+                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">3</span><div><h3 class="font-bold text-xl">Niveau 3</h3><p class="text-gray-600">Le Premium</p></div></div></div>
+                <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium"><strong class="text-black">Chatbot IA</strong>, <strong class="text-black">Recherche prédictive</strong>, <strong class="text-black">Wishlist & Alertes</strong>, <strong class="text-black">Gamification</strong> et <strong class="text-black">Social proof</strong>.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#111] mt-32 relative overflow-hidden py-24 reveal">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] font-heading font-black text-outline-dark opacity-50 pointer-events-none select-none z-0 tracking-tighter w-full text-center">INSIGHTS</div>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12">
+            <div class="relative w-64 h-64 md:w-80 md:h-80">
+                <div class="absolute -top-12 -right-4 bg-white text-black text-xs font-bold p-3 rounded-2xl rounded-bl-none shadow-lg max-w-[150px] transform rotate-3"><span class="text-lg font-black block mb-1">PERF !</span>CHAQUE SECONDE DE GAGNÉE AUGMENTE VOS CONVERSIONS.</div>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=600" alt="Performance data" class="w-full h-full object-cover rounded-full border-4 border-[#333] filter grayscale">
+            </div>
+            <div class="bg-white rounded-3xl overflow-hidden max-w-sm flex border border-gray-200">
+                <div class="w-2/5 bg-gray-100 p-4 flex items-center justify-center relative">
+                    <div class="w-16 h-16 rounded-full border-4 border-white bg-primary flex items-center justify-center shadow-sm relative z-10 text-white"><i data-lucide="zap" class="w-8 h-8"></i></div>
+                    <i data-lucide="code" class="absolute top-4 left-4 w-4 h-4 text-gray-400"></i>
+                    <i data-lucide="bar-chart" class="absolute bottom-4 right-4 w-4 h-4 text-gray-400"></i>
                 </div>
-                <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium">
-                    Chatbot IA, recherche prédictive, wishlist, alertes de stock, gamification et social proof en temps réel.
+                <div class="w-3/5 p-6"><span class="inline-block bg-primary-light text-primary text-[10px] font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Tech Update</span><h3 class="font-heading font-black text-lg leading-tight">L'impact des Core Web Vitals sur vos ventes Shopify</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-7xl mx-auto px-4 md:px-8 mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+        <div class="bg-primary-light rounded-[2rem] p-8 border border-primary/20 relative">
+            <div class="flex justify-between items-start mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-lg">M</div>
+                    <div><h4 class="font-bold text-sm">Marque E-commerce</h4><p class="text-xs text-gray-500">Shopify Plus Merchant</p></div>
+                </div>
+                <div class="flex gap-1">
+                    <button class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400"><i data-lucide="chevron-left" class="w-3 h-3"></i></button>
+                    <button class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400"><i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+                </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4 gap-1">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-gray-700 mb-6 leading-relaxed">Une infrastructure technique incroyable. Tha Ascend a refait notre architecture de A à Z avec un vrai gain de vitesse et de conversion.</p>
+            <div class="text-xs text-gray-500">Évaluation <strong class="text-black">4.9</strong> sur 5, basée sur <strong class="text-black">42 avis vérifiés</strong></div>
+        </div>
+        <div>
+            <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-8">
+                <span class="text-outline-gray">PAYEZ UNE FOIS,</span><br>
+                <span class="text-outline-gray">POSSÉDEZ VOTRE</span><br>
+                <span class="text-filled-purple-3d">CODE À VIE</span>
+            </h2>
+            <p class="text-gray-800 font-medium mb-6 leading-relaxed">Notre but est d'offrir une indépendance technique totale.</p>
+            <p class="text-gray-700 font-medium mb-10 leading-relaxed text-sm">Pas d'abonnements cachés pour votre thème. Le code source livré vous appartient et reste librement exploitable.</p>
+            <form class="space-y-3 max-w-md">
+                <input type="text" placeholder="Prénom" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm bg-white">
+                <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm bg-white">
+                <textarea placeholder="Décris ton projet" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm bg-white"></textarea>
+                <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary-dark transition-colors text-sm">Demander un audit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-primary-light/50 border-t border-primary/10 pt-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div>
+                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Architectures</h4>
+                <ul class="space-y-3 text-sm text-gray-700">
+                    <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait BORN X</a></li>
+                    <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait EVOLVE Y</a></li>
+                    <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait ASCEND Z</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Contactez-nous</h4>
+                <ul class="space-y-4 text-sm text-gray-700">
+                    <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> build@thaascend.com</li>
+                    <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-gray-400 mt-1"></i> <span>Agence 100% Remote<br>Intervention Monde</span></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Accès Privé</h4>
+                <form class="space-y-3">
+                    <input type="text" placeholder="Prénom" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
+                    <input type="email" placeholder="Email (Pour astuces CRO)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
+                    <button type="submit" class="w-full bg-primary-light text-primary border border-primary/20 font-bold py-2.5 rounded-xl hover:bg-primary hover:text-white transition-colors text-sm">S'inscrire</button>
+                </form>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2 bg-white rounded-xl p-3 flex flex-col items-center justify-center border border-gray-100 shadow-sm relative">
+                    <span class="font-bold text-xs flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4 text-green-500"></i> Shopify Partners</span>
+                </div>
+                <div class="col-span-2 flex justify-between items-center px-2 py-4">
+                    <div class="flex items-center gap-1 text-xs font-bold"><i data-lucide="activity" class="w-4 h-4 text-blue-600"></i> Core Web Vitals <span class="text-[8px] font-normal text-gray-400">Optimized</span></div>
+                    <div class="flex items-center gap-1 text-xs font-bold text-purple-500"><i data-lucide="figma" class="w-4 h-4"></i> UI/UX</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="contact"></div>
-    <footer class="max-w-7xl mx-auto px-4 md:px-8 mt-32 mb-16 reveal">
-        <div class="bg-white rounded-[2rem] border border-gray-200 p-8 md:p-12 shadow-soft">
-            <div class="grid md:grid-cols-2 gap-10 items-start">
-                <div>
-                    <p class="text-primary font-bold uppercase tracking-widest text-xs mb-3">Tha Ascend</p>
-                    <h2 class="font-heading font-black text-4xl md:text-5xl leading-tight mb-4">
-                        Transformons votre boutique en moteur de vente
-                    </h2>
-                    <p class="text-gray-600 max-w-xl">
-                        Parlez-nous de votre besoin, de votre stack et de vos objectifs. Nous vous aidons à construire une base e-commerce robuste, rapide et rentable.
-                    </p>
+        <div class="bg-black text-white py-4 text-xs">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2026 | Tha Ascend. Tous droits réservés.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-primary transition-colors">Politique de vie privée</a>
+                    <a href="#" class="hover:text-primary transition-colors">Politique de cookies</a>
+                    <a href="#" class="hover:text-primary transition-colors">Mentions légales</a>
                 </div>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Votre nom" class="w-full rounded-2xl border border-gray-200 px-5 py-4 outline-none focus:border-primary">
-                    <input type="email" placeholder="Votre email" class="w-full rounded-2xl border border-gray-200 px-5 py-4 outline-none focus:border-primary">
-                    <textarea placeholder="Décrivez votre projet" rows="5" class="w-full rounded-2xl border border-gray-200 px-5 py-4 outline-none focus:border-primary"></textarea>
-                    <button type="submit" class="inline-flex items-center gap-2 border border-primary text-primary rounded-full px-6 py-3 font-medium hover:bg-primary hover:text-white transition-colors bg-white btn-cta">
-                        Envoyer la demande <i data-lucide="send" class="w-4 h-4"></i>
-                    </button>
-                </form>
             </div>
         </div>
     </footer>
 
     <script>
-    lucide.createIcons();
+        lucide.createIcons();
 
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-
-    const carousel = document.getElementById('expertise-carousel');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
-    if (carousel && prevBtn && nextBtn) {
-        const scrollAmount = 370;
-        prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
-        nextBtn.addEventListener('click', () => carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-            const href = link.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    const newsletterForm = document.querySelector('footer form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = newsletterForm.querySelector('button[type="submit"]');
-            btn.textContent = '✓ Envoyé';
-            btn.classList.add('bg-green-500', 'text-white', 'border-green-500');
-            btn.disabled = true;
-        });
-    }
-
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > 80) {
-            nav.classList.add('shadow-md');
-        } else {
-            nav.classList.remove('shadow-md');
+        const mobileButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileButton && mobileMenu) {
+            mobileButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
         }
-    }, { passive: true });
 
-    function animateCounter(el, target, suffix = '') {
-        let current = 0;
-        const increment = target / 60;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                el.textContent = target + suffix;
-                clearInterval(timer);
-            } else {
-                el.textContent = Math.floor(current) + suffix;
-            }
-        }, 20);
-    }
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
                 const el = entry.target;
-                const val = el.dataset.target;
-                const suffix = el.dataset.suffix || '';
-                animateCounter(el, parseInt(val), suffix);
+                const target = parseInt(el.dataset.target, 10);
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 30));
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        el.textContent = target;
+                        clearInterval(interval);
+                    } else {
+                        el.textContent = current;
+                    }
+                }, 35);
                 counterObserver.unobserve(el);
-            }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        const carousel = document.getElementById('portfolio-carousel');
+        const prev = document.getElementById('portfolio-prev');
+        const next = document.getElementById('portfolio-next');
+        if (carousel && prev && next) {
+            prev.addEventListener('click', () => carousel.scrollBy({ left: -380, behavior: 'smooth' }));
+            next.addEventListener('click', () => carousel.scrollBy({ left: 380, behavior: 'smooth' }));
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (!nav) return;
+            nav.style.boxShadow = window.scrollY > 10 ? '0 10px 30px rgba(17,17,17,0.08)' : 'none';
         });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
     </script>
 </body>
 </html>
