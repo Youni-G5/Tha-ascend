@@ -84,6 +84,103 @@
             background: linear-gradient(180deg, #eaddff 0%, #f8f7ff 100%);
         }
 
+        .header-shell {
+            background: rgba(248, 247, 255, 0.96);
+            border: 1px solid rgba(17, 17, 17, 0.18);
+            border-radius: 0;
+            min-height: 82px;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-divider {
+            width: 1px;
+            align-self: stretch;
+            background: rgba(17, 17, 17, 0.18);
+        }
+
+        .header-lang {
+            color: #9f93ff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .header-logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.25rem;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+            display: inline-flex;
+            align-items: center;
+            color: #111111;
+        }
+
+        .header-logo span:last-child {
+            font-weight: 300;
+            margin-left: 0.18rem;
+            letter-spacing: -0.04em;
+        }
+
+        .header-logo-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: #111111;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.22rem;
+            color: white;
+            transform: translateY(1px);
+        }
+
+        .header-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            padding: 0.95rem 1.4rem;
+            border: 1px solid rgba(17, 17, 17, 0.34);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            color: #111111;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .header-pill:hover {
+            background: white;
+            border-color: rgba(17, 17, 17, 0.48);
+            transform: translateY(-1px);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 1.55rem;
+            border: 1.5px solid rgba(133, 113, 255, 0.55);
+            border-radius: 999px;
+            color: #8571ff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.35);
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .header-cta:hover {
+            background: #8571ff;
+            color: white;
+        }
+
         .bg-purple-glow {
             position: relative;
         }
@@ -606,8 +703,6 @@
         }
         nav {
             transition: box-shadow 0.3s ease;
-            position: sticky;
-            top: 1rem;
             z-index: 50;
         }
         .btn-cta {
@@ -626,37 +721,95 @@
         .btn-cta:hover::before { left: 0; }
         .btn-cta:hover { color: white; }
         html { scroll-behavior: smooth; }
+
+        @media (max-width: 1024px) {
+            .header-logo {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header-shell {
+                border-radius: 24px;
+                margin-top: 0.5rem;
+                padding: 0.8rem 1rem;
+                min-height: auto;
+            }
+
+            .header-divider,
+            .header-desktop,
+            .header-cta-desktop,
+            .header-lang-desktop {
+                display: none !important;
+            }
+
+            .header-logo {
+                font-size: 1.45rem;
+            }
+
+            .header-logo-mark {
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
-    <div class="bg-hero-gradient pt-6 pb-20 px-4 md:px-8 relative overflow-hidden">
-        <nav class="max-w-7xl mx-auto bg-white rounded-full px-6 py-3 flex items-center justify-between border border-gray-200 shadow-sm relative z-20">
-            <div class="flex items-center gap-3">
-                <div class="w-2 h-2 rounded-full bg-primary"></div>
-                <div class="font-heading text-2xl tracking-tight">THA ASCEND</div>
+    <div class="bg-hero-gradient pt-4 md:pt-6 pb-20 px-4 md:px-8 relative overflow-hidden">
+        <nav class="max-w-[1440px] mx-auto header-shell relative z-20">
+            <div class="hidden md:flex items-center justify-between min-h-[82px]">
+                <div class="flex items-center h-full">
+                    <button class="header-lang header-lang-desktop flex items-center gap-1 px-8 h-[82px]" aria-label="Changer la langue">
+                        FR <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="header-divider"></div>
+                    <a href="#top" class="px-8 h-[82px] flex items-center" aria-label="Tha Ascend accueil">
+                        <div class="header-logo">
+                            <span>THA</span>
+                            <span class="header-logo-mark"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></span>
+                            <span>ASCEND</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-4 px-6 header-desktop">
+                    <a href="#architectures" class="header-pill">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                    <a href="#plugins" class="header-pill">Hub Plugins</a>
+                    <a href="#expertises" class="header-pill">Expertises</a>
+                    <a href="#contact" class="header-pill">Contact</a>
+                </div>
+
+                <div class="flex items-center h-full">
+                    <div class="header-divider"></div>
+                    <div class="px-8 h-[82px] flex items-center header-cta-desktop">
+                        <a href="#contact" class="header-cta">Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#architectures" class="flex items-center gap-1 border border-gray-200 rounded-full px-4 py-1.5 hover:bg-gray-50">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                <a href="#plugins" class="hover:text-primary transition-colors">Hub Plugins</a>
-                <a href="#expertises" class="hover:text-primary transition-colors">Expertises</a>
-                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+
+            <div class="md:hidden flex items-center justify-between gap-3">
+                <a href="#top" class="flex items-center" aria-label="Tha Ascend accueil">
+                    <div class="header-logo">
+                        <span>THA</span>
+                        <span class="header-logo-mark"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                        <span>ASCEND</span>
+                    </div>
+                </a>
+                <button id="mobile-menu-button" class="text-gray-700 w-11 h-11 rounded-full border border-gray-300 bg-white/70 flex items-center justify-center" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
-            <a href="#contact" class="hidden md:flex text-primary items-center gap-2 border border-primary/20 rounded-full px-5 py-2 text-sm font-medium hover:bg-primary-light transition-colors">
-                Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-            <button id="mobile-menu-button" class="md:hidden text-gray-700" aria-label="Ouvrir le menu">
-                <i data-lucide="menu"></i>
-            </button>
         </nav>
-        <div id="mobile-menu" class="hidden max-w-7xl mx-auto mt-3 bg-white rounded-3xl border border-gray-200 shadow-sm p-4 md:hidden">
+        <div id="mobile-menu" class="hidden max-w-[1440px] mx-auto mt-3 bg-white rounded-[1.5rem] border border-gray-200 shadow-sm p-4 md:hidden">
             <div class="flex flex-col gap-3 text-sm font-medium">
-                <a href="#architectures" class="hover:text-primary transition-colors">Architectures</a>
-                <a href="#plugins" class="hover:text-primary transition-colors">Hub Plugins</a>
-                <a href="#expertises" class="hover:text-primary transition-colors">Expertises</a>
-                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                <a href="#architectures" class="header-pill !justify-between">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                <a href="#plugins" class="header-pill !justify-between">Hub Plugins</a>
+                <a href="#expertises" class="header-pill !justify-between">Expertises</a>
+                <a href="#contact" class="header-pill !justify-between">Contact</a>
+                <a href="#contact" class="header-cta !justify-center mt-2">Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10">
+        <div id="top" class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10">
             <div class="flex flex-col md:flex-row items-start justify-between gap-12">
                 <div class="max-w-3xl reveal">
                     <p class="text-primary font-bold tracking-wider text-sm md:text-base mb-4 uppercase">Agence d'ingénierie e-commerce premium</p>
