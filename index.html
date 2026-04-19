@@ -100,6 +100,272 @@
             border-radius: 50%;
         }
 
+        .hero-phone-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1400px;
+        }
+
+        .hero-phone-glow {
+            position: absolute;
+            inset: auto;
+            width: 420px;
+            height: 420px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(133,113,255,0.22) 0%, rgba(133,113,255,0.08) 38%, rgba(248,247,255,0) 72%);
+            filter: blur(10px);
+        }
+
+        .hero-phone {
+            position: relative;
+            width: 260px;
+            height: 520px;
+            border-radius: 42px;
+            padding: 12px;
+            background: linear-gradient(145deg, #0f0f13 0%, #22222a 45%, #0a0a0d 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 70px rgba(17,17,17,0.18), 0 14px 30px rgba(133,113,255,0.18);
+            animation: phoneFloat 4.8s ease-in-out infinite;
+            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1);
+            transform-style: preserve-3d;
+        }
+
+        .hero-phone:hover {
+            transform: translateY(-10px) rotateX(7deg) rotateY(-10deg) scale(1.02);
+            box-shadow: 0 40px 90px rgba(17,17,17,0.24), 0 20px 40px rgba(133,113,255,0.26);
+        }
+
+        .hero-phone::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 86px;
+            height: 24px;
+            background: #0b0b0f;
+            border-radius: 0 0 18px 18px;
+            z-index: 4;
+        }
+
+        .hero-phone::after {
+            content: '';
+            position: absolute;
+            inset: 18px;
+            border-radius: 32px;
+            border: 1px solid rgba(255,255,255,0.06);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .hero-phone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 32px;
+            background: linear-gradient(180deg, #fdfcff 0%, #f4f1ff 100%);
+        }
+
+        .hero-screen-scroller {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 22px 16px 18px;
+            animation: screenScroll 11s ease-in-out infinite;
+        }
+
+        .hero-ui-card {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(133,113,255,0.12);
+            border-radius: 24px;
+            box-shadow: 0 10px 24px rgba(133,113,255,0.08);
+            padding: 14px;
+        }
+
+        .hero-ui-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #f4f1ff;
+            color: #8571ff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-ui-title {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.03em;
+            font-size: 1.9rem;
+            line-height: 0.95;
+            color: #171717;
+        }
+
+        .hero-ui-subtitle {
+            color: #5f6472;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .hero-ui-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .hero-ui-stat {
+            background: #faf8ff;
+            border: 1px solid rgba(133,113,255,0.12);
+            border-radius: 18px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+
+        .hero-ui-stat strong {
+            display: block;
+            font-size: 1rem;
+            color: #111111;
+        }
+
+        .hero-ui-stat span {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7f7f8f;
+            font-weight: 700;
+        }
+
+        .hero-product-card {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-product-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #8571ff 0%, #b5a8ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-product-thumb::before,
+        .hero-product-thumb::after {
+            content: '';
+            position: absolute;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.75);
+        }
+
+        .hero-product-thumb::before {
+            width: 44px;
+            height: 44px;
+            bottom: -14px;
+            right: -8px;
+        }
+
+        .hero-product-thumb::after {
+            width: 20px;
+            height: 20px;
+            top: 8px;
+            left: 8px;
+            opacity: 0.8;
+        }
+
+        .hero-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .hero-mini-panel {
+            background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+            border: 1px solid rgba(133,113,255,0.14);
+            border-radius: 18px;
+            padding: 12px;
+            min-height: 88px;
+        }
+
+        .hero-chart {
+            display: flex;
+            align-items: end;
+            gap: 5px;
+            height: 54px;
+            margin-top: 10px;
+        }
+
+        .hero-chart span {
+            flex: 1;
+            border-radius: 999px 999px 8px 8px;
+            background: linear-gradient(180deg, #b7abff 0%, #8571ff 100%);
+        }
+
+        .hero-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .hero-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: #fbfaff;
+            border: 1px solid rgba(133,113,255,0.1);
+        }
+
+        .hero-list-item .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #8571ff;
+            box-shadow: 0 0 0 6px rgba(133,113,255,0.12);
+        }
+
+        .hero-phone-shadow {
+            position: absolute;
+            bottom: 10px;
+            width: 260px;
+            height: 44px;
+            background: radial-gradient(circle, rgba(17,17,17,0.18) 0%, rgba(17,17,17,0.08) 45%, rgba(17,17,17,0) 76%);
+            filter: blur(10px);
+            animation: shadowFloat 4.8s ease-in-out infinite;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { transform: translateY(0px) rotate(-4deg); }
+            50% { transform: translateY(-16px) rotate(-2deg); }
+        }
+
+        @keyframes shadowFloat {
+            0%, 100% { transform: scaleX(1) translateY(0); opacity: 0.85; }
+            50% { transform: scaleX(0.92) translateY(8px); opacity: 0.6; }
+        }
+
+        @keyframes screenScroll {
+            0%, 16% { transform: translateY(0); }
+            28%, 44% { transform: translateY(-150px); }
+            56%, 72% { transform: translateY(-310px); }
+            84%, 100% { transform: translateY(-470px); }
+        }
+
         .timeline-line {
             position: absolute;
             left: 50%;
@@ -195,17 +461,91 @@
                     </div>
                 </div>
                 <div class="hidden md:block w-[500px] h-[400px] relative -mt-10 reveal">
-                    <svg viewBox="0 0 500 400" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 150 L350 100 L350 300 L100 350 Z" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <rect x="120" y="180" width="40" height="60" fill="#8571ff" stroke="#111" stroke-width="2"/>
-                        <rect x="180" y="170" width="40" height="60" fill="#8571ff" stroke="#111" stroke-width="2"/>
-                        <rect x="240" y="160" width="40" height="60" fill="#8571ff" stroke="#111" stroke-width="2"/>
-                        <path d="M380 200 C450 200 450 300 380 300 L380 280 C420 280 420 220 380 220 Z" fill="#eaddff" stroke="#111" stroke-width="2"/>
-                        <path d="M380 200 L360 200 L360 220 L380 220 Z" fill="#8571ff" stroke="#111" stroke-width="2"/>
-                        <path d="M380 280 L360 280 L360 300 L380 300 Z" fill="#8571ff" stroke="#111" stroke-width="2"/>
-                        <path d="M300 250 L310 240 L320 250 L310 260 Z" fill="#fff" stroke="#111" stroke-width="1.5"/>
-                        <path d="M260 220 L265 215 L270 220 L265 225 Z" fill="#fff" stroke="#111" stroke-width="1.5"/>
-                    </svg>
+                    <div class="hero-phone-scene">
+                        <div class="hero-phone-glow"></div>
+                        <div class="hero-phone-shadow"></div>
+                        <div class="hero-phone">
+                            <div class="hero-phone-screen">
+                                <div class="hero-screen-scroller">
+                                    <div class="hero-ui-card">
+                                        <span class="hero-ui-pill"><i data-lucide="sparkles" class="w-3 h-3"></i> Conversion</span>
+                                        <div class="hero-ui-title mt-3">Ascend Mobile Store</div>
+                                        <p class="hero-ui-subtitle mt-2">Un aperçu d'une boutique premium pensée pour la vitesse, l'upsell et la rétention.</p>
+                                        <div class="hero-ui-metrics mt-4">
+                                            <div class="hero-ui-stat"><strong>+38%</strong><span>Panier</span></div>
+                                            <div class="hero-ui-stat"><strong>1.2s</strong><span>Speed</span></div>
+                                            <div class="hero-ui-stat"><strong>4.9/5</strong><span>Avis</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-ui-card">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <div>
+                                                <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">Produit star</div>
+                                                <div class="text-sm font-semibold text-[#111] mt-1">Routine Glow Kit</div>
+                                            </div>
+                                            <div class="hero-ui-pill">Best seller</div>
+                                        </div>
+                                        <div class="hero-product-card">
+                                            <div class="hero-product-thumb"></div>
+                                            <div>
+                                                <div class="text-sm font-semibold text-[#111]">Bundle skincare</div>
+                                                <div class="text-xs text-gray-500 mt-1">Ajout au panier en un clic avec upsell natif.</div>
+                                                <div class="text-sm font-bold text-primary mt-2">89€</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-mini-grid">
+                                        <div class="hero-mini-panel">
+                                            <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">Live stats</div>
+                                            <div class="hero-chart">
+                                                <span style="height: 28%;"></span>
+                                                <span style="height: 48%;"></span>
+                                                <span style="height: 44%;"></span>
+                                                <span style="height: 72%;"></span>
+                                                <span style="height: 86%;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="hero-mini-panel">
+                                            <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">CRM sync</div>
+                                            <div class="hero-list">
+                                                <div class="hero-list-item"><div class="flex items-center gap-2"><span class="dot"></span><span class="text-xs font-semibold text-[#111]">Klaviyo</span></div><span class="text-[11px] text-primary font-bold">ON</span></div>
+                                                <div class="hero-list-item"><div class="flex items-center gap-2"><span class="dot"></span><span class="text-xs font-semibold text-[#111]">Reviews</span></div><span class="text-[11px] text-primary font-bold">SYNC</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-ui-card">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">Checkout flow</div>
+                                                <div class="text-base font-semibold text-[#111] mt-1">Tunnel optimisé</div>
+                                            </div>
+                                            <div class="w-10 h-10 rounded-2xl bg-primary text-white flex items-center justify-center">
+                                                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                                            </div>
+                                        </div>
+                                        <div class="hero-list mt-4">
+                                            <div class="hero-list-item"><span class="text-xs font-semibold text-[#111]">1. Panier tiroir intelligent</span><span class="text-[11px] text-gray-500">Auto</span></div>
+                                            <div class="hero-list-item"><span class="text-xs font-semibold text-[#111]">2. Upsell post-ajout</span><span class="text-[11px] text-gray-500">+12%</span></div>
+                                            <div class="hero-list-item"><span class="text-xs font-semibold text-[#111]">3. Checkout frictionless</span><span class="text-[11px] text-gray-500">Fast</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-ui-card">
+                                        <div class="hero-ui-title">Design System Ready</div>
+                                        <p class="hero-ui-subtitle mt-2">Sections premium, contenu modulaire et composants pensés pour Shopify OS 2.0.</p>
+                                        <div class="flex gap-2 mt-4 flex-wrap">
+                                            <span class="hero-ui-pill">Figma</span>
+                                            <span class="hero-ui-pill">Shopify</span>
+                                            <span class="hero-ui-pill">CRO</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -237,7 +577,7 @@
             <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading text-xl mb-6">Z</div>
             <h3 class="font-heading text-2xl mb-2">ASCEND Z</h3>
             <p class="text-primary font-bold text-sm mb-4">L'Écosystème (1800€)</p>
-            <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour des performances extrêmes. 10 pages, optimisation de la vitesse max, Shopify OS 2.0, configuration d'apps tierces. (4 plugins offerts).</div>
+            <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour des performances extrêmes. 10 pages, optimisation de la vitesse max, Shopify OS 2.0, configuration d'apps tierces. (4 plugin offerts).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
     </section>
