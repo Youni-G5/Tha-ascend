@@ -38,21 +38,36 @@
             overflow-x: hidden;
         }
 
+        .text-outline-gray,
+        .text-outline-purple,
+        .text-outline-purple-hollow,
+        .text-outline-dark,
+        .text-outline-white {
+            text-shadow: none;
+            paint-order: stroke fill;
+            stroke-linejoin: round;
+        }
+
         .text-outline-gray {
             color: transparent;
             -webkit-text-stroke: 1px #d1d5db;
+            text-stroke: 1px #d1d5db;
         }
         
         .text-outline-purple {
-            color: white;
+            color: #ffffff;
             -webkit-text-stroke: 2px #8571ff;
-            text-shadow: 5px 5px 0px #e5deff;
+            text-stroke: 2px #8571ff;
+            paint-order: stroke fill;
+            text-shadow: 3px 3px 0px #e5deff;
         }
 
         .text-outline-purple-hollow {
             color: transparent;
             -webkit-text-stroke: 2px #8571ff;
-            text-shadow: 4px 4px 0px #e5deff;
+            text-stroke: 2px #8571ff;
+            paint-order: stroke fill;
+            text-shadow: 2px 2px 0px #e5deff;
         }
 
         .text-filled-purple-3d {
@@ -63,11 +78,13 @@
         .text-outline-dark {
             color: transparent;
             -webkit-text-stroke: 2px #222;
+            text-stroke: 2px #222;
         }
 
         .text-outline-white {
             color: transparent;
             -webkit-text-stroke: 1px white;
+            text-stroke: 1px white;
         }
 
         .bg-hero-gradient {
