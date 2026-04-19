@@ -56,20 +56,23 @@
         }
 
         .text-outline-gray {
-            -webkit-text-stroke: 2px #d1d5db;
+            -webkit-text-stroke: 2px #111111;
         }
         
         .text-outline-purple {
-            -webkit-text-stroke: 2px #8571ff;
+            -webkit-text-stroke: 2px #111111;
         }
 
         .text-outline-purple-hollow {
-            -webkit-text-stroke: 2px #8571ff;
+            -webkit-text-stroke: 2px #111111;
         }
 
         .text-filled-purple-3d {
-            color: #8571ff;
-            text-shadow: 4px 4px 0px #e5deff;
+            color: transparent;
+            -webkit-text-stroke: 2px #111111;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            paint-order: stroke fill;
         }
 
         .text-outline-dark {
@@ -696,23 +699,28 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
         .reveal {
             opacity: 0;
             transform: translateY(32px);
             transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
         }
+
         .reveal.is-visible {
             opacity: 1;
             transform: none;
         }
+
         nav {
             transition: box-shadow 0.3s ease;
             z-index: 50;
         }
+
         .btn-cta {
             position: relative;
             overflow: hidden;
         }
+
         .btn-cta::before {
             content: '';
             position: absolute;
@@ -722,9 +730,337 @@
             transition: left 0.3s ease;
             z-index: -1;
         }
+
         .btn-cta:hover::before { left: 0; }
         .btn-cta:hover { color: white; }
+
         html { scroll-behavior: smooth; }
+
+        /* ===== TITRES ===== */
+        .section-title {
+            font-size: clamp(3rem, 6vw, 5.6rem);
+            line-height: 0.98;
+            text-transform: uppercase;
+        }
+
+        .section-title .title-line {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(24px);
+            filter: blur(4px);
+        }
+
+        .reveal.is-visible .section-title .title-line {
+            animation: titleReveal 0.75s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .reveal.is-visible .section-title .title-line:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        @keyframes titleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(24px);
+                filter: blur(4px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* ===== GOOGLE REVIEWS ===== */
+        .reviews-shell {
+            background: #ffffff;
+            border: 1px solid rgba(17,17,17,0.10);
+            border-radius: 32px;
+            box-shadow: 0 20px 50px rgba(17,17,17,0.08);
+            overflow: hidden;
+        }
+
+        .reviews-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 24px 18px;
+            border-bottom: 1px solid rgba(17,17,17,0.08);
+            background: linear-gradient(180deg, #ffffff 0%, #faf8ff 100%);
+        }
+
+        .reviews-google {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .google-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #fff;
+            border: 1px solid rgba(17,17,17,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 18px rgba(17,17,17,0.06);
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.04em;
+        }
+
+        .google-g1 { color: #4285F4; }
+        .google-g2 { color: #EA4335; }
+        .google-g3 { color: #FBBC05; }
+        .google-g4 { color: #34A853; }
+
+        .reviews-heading {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            color: #6b7280;
+            margin-bottom: 3px;
+        }
+
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reviews-score {
+            font-size: 1.65rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #111111;
+        }
+
+        .reviews-stars {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            color: #fbbc04;
+        }
+
+        .reviews-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .reviews-count {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .reviews-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(17,17,17,0.12);
+            border-radius: 999px;
+            padding: 0.85rem 1.15rem;
+            background: white;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #111111;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .reviews-link:hover {
+            transform: translateY(-1px);
+            border-color: #111111;
+            background: #fafafa;
+        }
+
+        .reviews-slider {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reviews-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .review-slide {
+            width: 100%;
+            flex: 0 0 100%;
+            padding: 24px;
+        }
+
+        .review-card {
+            background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+            border: 1px solid rgba(17,17,17,0.08);
+            border-radius: 28px;
+            padding: 22px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 14px 30px rgba(17,17,17,0.05);
+        }
+
+        .review-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+        }
+
+        .review-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #111111 0%, #494949 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+            border: 2px solid white;
+            box-shadow: 0 10px 18px rgba(17,17,17,0.12);
+        }
+
+        .review-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111111;
+            line-height: 1.1;
+        }
+
+        .review-role {
+            font-size: 0.82rem;
+            color: #6b7280;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .review-platform {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        .review-stars-row {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #fbbc04;
+            margin-bottom: 16px;
+        }
+
+        .review-stars-row svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(17,17,17,0.08);
+        }
+
+        .review-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 0.95rem;
+            border-radius: 999px;
+            background: #f4f1ff;
+            color: #8571ff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid rgba(133,113,255,0.18);
+        }
+
+        .review-date {
+            font-size: 0.78rem;
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        .reviews-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 0 24px 24px;
+        }
+
+        .reviews-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            background: white;
+            border: 1px solid rgba(17,17,17,0.12);
+            color: #111111;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .reviews-arrow:hover {
+            background: #111111;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .reviews-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reviews-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(17,17,17,0.18);
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .reviews-dot.is-active {
+            width: 28px;
+            background: #8571ff;
+        }
 
         @media (max-width: 1024px) {
             .header-logo {
@@ -754,6 +1090,30 @@
             .header-logo-mark {
                 width: 30px;
                 height: 30px;
+            }
+
+            .section-title {
+                font-size: clamp(2.45rem, 10vw, 4rem);
+                line-height: 1;
+            }
+
+            .reviews-topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .reviews-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .review-card {
+                min-height: auto;
+            }
+
+            .review-footer {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -805,6 +1165,7 @@
                 </button>
             </div>
         </nav>
+
         <div id="mobile-menu" class="hidden w-full mt-0 bg-white border-x border-b border-black shadow-sm p-4 md:hidden">
             <div class="max-w-[1440px] mx-auto flex flex-col gap-3 text-sm font-medium px-4">
                 <a href="#architectures" class="header-pill !justify-between">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
@@ -814,6 +1175,7 @@
                 <a href="#contact" class="header-cta !justify-center mt-2">Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
             </div>
         </div>
+
         <div id="top" class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10 px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-start justify-between gap-12">
                 <div class="max-w-3xl reveal">
@@ -829,6 +1191,7 @@
                         <a href="#expertises" class="inline-flex items-center gap-2 border border-gray-300 rounded-full px-6 py-3 font-medium hover:bg-white transition-colors">Explorer les expertises</a>
                     </div>
                 </div>
+
                 <div class="hidden md:block w-[500px] h-[460px] relative reveal hero-phone-wrap">
                     <div class="hero-phone-scene">
                         <div class="hero-phone-glow"></div>
@@ -958,6 +1321,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="hero-slider-nav absolute left-1/2 -translate-x-1/2 bottom-0 w-[280px] z-20">
                         <button class="hero-slider-arrow" id="hero-prev" aria-label="Voir la page précédente"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>
                         <div class="hero-slider-dots" id="hero-dots">
@@ -973,9 +1337,9 @@
     </div>
 
     <section id="architectures" class="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-20 reveal">
-        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase leading-tight">
-            <span class="text-outline-gray">VOS ARCHITECTURES SUR-MESURE</span><br>
-            <span class="text-outline-gray">POUR </span><span class="text-filled-purple-3d">SCALER VITE</span>
+        <h2 class="font-heading section-title leading-tight">
+            <span class="text-outline-gray title-line">VOS ARCHITECTURES SUR-MESURE</span><br>
+            <span class="text-outline-gray title-line">POUR </span><span class="text-filled-purple-3d title-line">SCALER VITE</span>
         </h2>
     </section>
 
@@ -1039,10 +1403,10 @@
             </div>
         </div>
         <div class="reveal">
-            <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-8">
-                <span class="text-outline-gray">L'ÉQUIVALENT D'UN</span><br>
-                <span class="text-outline-gray">CABINET D'ARCHITECTES</span><br>
-                <span class="text-filled-purple-3d">POUR LE E-COMMERCE</span>
+            <h2 class="font-heading section-title mb-8">
+                <span class="text-outline-gray title-line">L'ÉQUIVALENT D'UN</span><br>
+                <span class="text-outline-gray title-line">CABINET D'ARCHITECTES</span><br>
+                <span class="text-filled-purple-3d title-line">POUR LE E-COMMERCE</span>
             </h2>
             <p class="text-gray-700 mb-6 font-medium leading-relaxed">Vous avez de l'ambition, nous avons l'infrastructure. Nous prenons nos clients par la main pour leur offrir une base technique irréprochable.</p>
             <p class="text-gray-700 mb-10 font-medium leading-relaxed">Tha Ascend crée votre moteur de vente de A à Z, puis le personnalise avec des options avancées pour maximiser vos revenus et votre CRO.</p>
@@ -1051,9 +1415,9 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
-        <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-12">
-            <span class="text-outline-gray">BEYOND THE BOX: NOS</span><br>
-            <span class="text-outline-gray">AUTRES </span><span class="text-filled-purple-3d">EXPERTISES</span>
+        <h2 class="font-heading section-title mb-12">
+            <span class="text-outline-gray title-line">BEYOND THE BOX: NOS</span><br>
+            <span class="text-outline-gray title-line">AUTRES </span><span class="text-filled-purple-3d title-line">EXPERTISES</span>
         </h2>
         <div class="relative">
             <button id="portfolio-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-12 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-primary shadow-sm z-10 hover:bg-gray-50">
@@ -1080,9 +1444,9 @@
     </section>
 
     <section id="plugins" class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
-        <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-6 text-center md:text-left">
-            <span class="text-outline-gray">LE HUB D'INTÉGRATIONS</span><br>
-            <span class="text-filled-purple-3d">VOS 22 PLUGINS</span>
+        <h2 class="font-heading section-title mb-6 text-center md:text-left">
+            <span class="text-outline-gray title-line">LE HUB D'INTÉGRATIONS</span><br>
+            <span class="text-filled-purple-3d title-line">VOS 22 PLUGINS</span>
         </h2>
         <p class="text-center md:text-left text-gray-500 font-medium mb-20 uppercase tracking-widest text-xs">Facturés 50€/unité en dehors de ceux offerts dans les forfaits.</p>
         <div class="relative max-w-5xl mx-auto">
@@ -1124,28 +1488,195 @@
     </section>
 
     <section id="contact" class="max-w-7xl mx-auto px-4 md:px-8 mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
-        <div class="bg-primary-light rounded-[2rem] p-8 border border-primary/20 relative">
-            <div class="flex justify-between items-start mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-lg">M</div>
-                    <div><h4 class="font-bold text-sm">Marque E-commerce</h4><p class="text-xs text-gray-500">Shopify Plus Merchant</p></div>
+        <div class="reviews-shell">
+            <div class="reviews-topbar">
+                <div class="reviews-google">
+                    <div class="google-badge" aria-hidden="true">
+                        <span class="google-g1">G</span>
+                    </div>
+                    <div>
+                        <div class="reviews-heading">Google Reviews</div>
+                        <div class="reviews-summary">
+                            <span class="reviews-score">4.9</span>
+                            <div class="reviews-stars" aria-label="5 étoiles">
+                                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                            </div>
+                            <span class="reviews-count">42 avis vérifiés</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex gap-1">
-                    <button class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400"><i data-lucide="chevron-left" class="w-3 h-3"></i></button>
-                    <button class="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400"><i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+
+                <a href="#" class="reviews-link">
+                    Voir sur Google
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="reviews-slider">
+                <div class="reviews-track" id="reviews-track">
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div>
+                                <div class="review-head">
+                                    <div class="review-user">
+                                        <div class="review-avatar">ML</div>
+                                        <div>
+                                            <div class="review-name">Marque Lifestyle</div>
+                                            <div class="review-role">Shopify Plus Merchant</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-platform">
+                                        Google
+                                    </div>
+                                </div>
+
+                                <div class="review-stars-row">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                </div>
+
+                                <p class="review-text">Une infrastructure technique incroyable. Tha Ascend a refait notre architecture de A à Z avec un vrai gain de vitesse, une meilleure lisibilité mobile et une hausse nette de conversion.</p>
+                            </div>
+
+                            <div class="review-footer">
+                                <span class="review-badge">ASCEND Z</span>
+                                <span class="review-date">Il y a 2 semaines</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div>
+                                <div class="review-head">
+                                    <div class="review-user">
+                                        <div class="review-avatar">NS</div>
+                                        <div>
+                                            <div class="review-name">Néo Studio</div>
+                                            <div class="review-role">Marque DTC</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-platform">
+                                        Google
+                                    </div>
+                                </div>
+
+                                <div class="review-stars-row">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                </div>
+
+                                <p class="review-text">Le redesign est propre, premium et surtout pensé pour vendre. L’équipe a compris la marque très vite et chaque section a été optimisée avec une vraie logique CRO.</p>
+                            </div>
+
+                            <div class="review-footer">
+                                <span class="review-badge">EVOLVE Y</span>
+                                <span class="review-date">Il y a 1 mois</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div>
+                                <div class="review-head">
+                                    <div class="review-user">
+                                        <div class="review-avatar">AT</div>
+                                        <div>
+                                            <div class="review-name">Atelier Textile</div>
+                                            <div class="review-role">Mode & Accessoires</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-platform">
+                                        Google
+                                    </div>
+                                </div>
+
+                                <div class="review-stars-row">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                </div>
+
+                                <p class="review-text">Très grosse différence sur le rendu final par rapport à notre ancien thème. Les cartes produits, le panier tiroir et la structure globale inspirent beaucoup plus confiance.</p>
+                            </div>
+
+                            <div class="review-footer">
+                                <span class="review-badge">BORN X</span>
+                                <span class="review-date">Il y a 3 semaines</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div>
+                                <div class="review-head">
+                                    <div class="review-user">
+                                        <div class="review-avatar">LP</div>
+                                        <div>
+                                            <div class="review-name">Luna Paris</div>
+                                            <div class="review-role">Cosmétique</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-platform">
+                                        Google
+                                    </div>
+                                </div>
+
+                                <div class="review-stars-row">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.33l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.94L12 2.5z"/></svg>
+                                </div>
+
+                                <p class="review-text">On voulait quelque chose de plus premium et de plus crédible que les thèmes classiques. C’est exactement ce qu’ils ont livré, avec en plus un accompagnement très carré du début à la fin.</p>
+                            </div>
+
+                            <div class="review-footer">
+                                <span class="review-badge">Shopify UI / UX</span>
+                                <span class="review-date">Il y a 6 jours</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="flex text-yellow-400 mb-4 gap-1">
-                <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+
+            <div class="reviews-controls">
+                <button class="reviews-arrow" id="reviews-prev" aria-label="Avis précédent">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
+                <div class="reviews-dots" id="reviews-dots">
+                    <button class="reviews-dot is-active" data-review="0" aria-label="Voir l'avis 1"></button>
+                    <button class="reviews-dot" data-review="1" aria-label="Voir l'avis 2"></button>
+                    <button class="reviews-dot" data-review="2" aria-label="Voir l'avis 3"></button>
+                    <button class="reviews-dot" data-review="3" aria-label="Voir l'avis 4"></button>
+                </div>
+                <button class="reviews-arrow" id="reviews-next" aria-label="Avis suivant">
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
             </div>
-            <p class="text-sm text-gray-700 mb-6 leading-relaxed">Une infrastructure technique incroyable. Tha Ascend a refait notre architecture de A à Z avec un vrai gain de vitesse et de conversion.</p>
-            <div class="text-xs text-gray-500">Évaluation <strong class="text-black">4.9</strong> sur 5, basée sur <strong class="text-black">42 avis vérifiés</strong></div>
         </div>
+
         <div>
-            <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-8">
-                <span class="text-outline-gray">PAYEZ UNE FOIS,</span><br>
-                <span class="text-outline-gray">POSSÉDEZ VOTRE</span><br>
-                <span class="text-filled-purple-3d">CODE À VIE</span>
+            <h2 class="font-heading section-title mb-8">
+                <span class="text-outline-gray title-line">PAYEZ UNE FOIS,</span><br>
+                <span class="text-outline-gray title-line">POSSÉDEZ VOTRE</span><br>
+                <span class="text-filled-purple-3d title-line">CODE À VIE</span>
             </h2>
             <p class="text-gray-800 font-medium mb-6 leading-relaxed">Notre but est d'offrir une indépendance technique totale.</p>
             <p class="text-gray-700 font-medium mb-10 leading-relaxed text-sm">Pas d'abonnements cachés pour votre thème. Le code source livré vous appartient et reste librement exploitable.</p>
@@ -1161,7 +1692,7 @@
     <footer class="bg-primary-light/50 border-t border-primary/10 pt-16">
         <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div>
-                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Architectures</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-black pb-2 inline-block">Architectures</h4>
                 <ul class="space-y-3 text-sm text-gray-700">
                     <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait BORN X</a></li>
                     <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait EVOLVE Y</a></li>
@@ -1169,14 +1700,14 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Contactez-nous</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-black pb-2 inline-block">Contactez-nous</h4>
                 <ul class="space-y-4 text-sm text-gray-700">
                     <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> build@thaascend.com</li>
                     <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-gray-400 mt-1"></i> <span>Agence 100% Remote<br>Intervention Monde</span></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Accès Privé</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-black pb-2 inline-block">Accès Privé</h4>
                 <form class="space-y-3">
                     <input type="text" placeholder="Prénom" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
                     <input type="email" placeholder="Email (Pour astuces CRO)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
@@ -1288,6 +1819,47 @@
             });
             updateHeroSlider(0);
             restartHeroAuto();
+        }
+
+        const reviewsTrack = document.getElementById('reviews-track');
+        const reviewsPrev = document.getElementById('reviews-prev');
+        const reviewsNext = document.getElementById('reviews-next');
+        const reviewsDots = document.querySelectorAll('#reviews-dots .reviews-dot');
+        let reviewIndex = 0;
+        let reviewAuto;
+
+        function updateReviewsSlider(index) {
+            if (!reviewsTrack) return;
+            reviewIndex = (index + reviewsDots.length) % reviewsDots.length;
+            reviewsTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+            reviewsDots.forEach((dot, i) => dot.classList.toggle('is-active', i === reviewIndex));
+        }
+
+        function restartReviewsAuto() {
+            clearInterval(reviewAuto);
+            reviewAuto = setInterval(() => updateReviewsSlider(reviewIndex + 1), 4500);
+        }
+
+        if (reviewsTrack && reviewsPrev && reviewsNext && reviewsDots.length) {
+            reviewsPrev.addEventListener('click', () => {
+                updateReviewsSlider(reviewIndex - 1);
+                restartReviewsAuto();
+            });
+
+            reviewsNext.addEventListener('click', () => {
+                updateReviewsSlider(reviewIndex + 1);
+                restartReviewsAuto();
+            });
+
+            reviewsDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    updateReviewsSlider(Number(dot.dataset.review));
+                    restartReviewsAuto();
+                });
+            });
+
+            updateReviewsSlider(0);
+            restartReviewsAuto();
         }
 
         window.addEventListener('scroll', () => {
