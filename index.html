@@ -101,7 +101,7 @@
         }
 
         .hero-phone-wrap {
-            margin-top: 48px;
+            margin-top: 8px;
         }
 
         .hero-phone-scene {
@@ -120,27 +120,27 @@
             width: 420px;
             height: 420px;
             border-radius: 999px;
-            background: radial-gradient(circle, rgba(133,113,255,0.22) 0%, rgba(133,113,255,0.08) 38%, rgba(248,247,255,0) 72%);
-            filter: blur(10px);
+            background: radial-gradient(circle, rgba(133,113,255,0.18) 0%, rgba(133,113,255,0.06) 40%, rgba(248,247,255,0) 72%);
+            filter: blur(14px);
         }
 
         .hero-phone {
             position: relative;
-            width: 270px;
-            height: 548px;
+            width: 286px;
+            height: 584px;
             border-radius: 42px;
             padding: 12px;
-            background: linear-gradient(145deg, #0f0f13 0%, #22222a 45%, #0a0a0d 100%);
+            background: linear-gradient(145deg, #050505 0%, #1a1a1f 48%, #09090c 100%);
             border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 30px 70px rgba(17,17,17,0.18), 0 14px 30px rgba(133,113,255,0.18);
+            box-shadow: 0 34px 84px rgba(17,17,17,0.22), 0 14px 34px rgba(133,113,255,0.16);
             animation: phoneFloat 4.8s ease-in-out infinite;
             transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1);
             transform-style: preserve-3d;
         }
 
         .hero-phone:hover {
-            transform: translateY(-10px) rotateX(7deg) rotateY(-10deg) scale(1.02);
-            box-shadow: 0 40px 90px rgba(17,17,17,0.24), 0 20px 40px rgba(133,113,255,0.26);
+            transform: translateY(-12px) rotateX(7deg) rotateY(-10deg) scale(1.02);
+            box-shadow: 0 44px 98px rgba(17,17,17,0.26), 0 22px 44px rgba(133,113,255,0.24);
         }
 
         .hero-phone::before {
@@ -151,7 +151,7 @@
             transform: translateX(-50%);
             width: 86px;
             height: 24px;
-            background: #0b0b0f;
+            background: #05060a;
             border-radius: 0 0 18px 18px;
             z-index: 4;
         }
@@ -161,7 +161,7 @@
             position: absolute;
             inset: 18px;
             border-radius: 32px;
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.05);
             pointer-events: none;
             z-index: 3;
         }
@@ -172,39 +172,44 @@
             height: 100%;
             overflow: hidden;
             border-radius: 32px;
-            background: #f7f6fb;
+            background: linear-gradient(180deg, #0d1016 0%, #121722 100%);
         }
 
-        .hero-screen-pages {
-            position: absolute;
-            inset: 0;
-            animation: shopifyPages 15s ease-in-out infinite;
+        .hero-screen-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hero-page {
+            width: 100%;
             height: 100%;
+            flex: 0 0 33.3333%;
             padding: 18px 14px 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+            background: linear-gradient(180deg, #0d1016 0%, #131a26 100%);
         }
 
         .hero-topbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255,255,255,0.92);
-            border: 1px solid rgba(133,113,255,0.10);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 16px;
             padding: 10px 12px;
-            box-shadow: 0 8px 18px rgba(133,113,255,0.08);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
         }
 
         .hero-brand {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             letter-spacing: 0.08em;
-            color: #111111;
+            color: #f8fafc;
         }
 
         .hero-page-label {
@@ -214,26 +219,28 @@
             width: fit-content;
             padding: 6px 10px;
             border-radius: 999px;
-            background: #eee9ff;
-            color: #8571ff;
+            background: rgba(133,113,255,0.14);
+            color: #c8bdff;
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            border: 1px solid rgba(133,113,255,0.14);
         }
 
         .hero-card {
-            background: rgba(255,255,255,0.96);
-            border: 1px solid rgba(133,113,255,0.10);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 22px;
             padding: 14px;
-            box-shadow: 0 10px 24px rgba(133,113,255,0.08);
+            box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+            backdrop-filter: blur(8px);
         }
 
         .hero-hero-visual {
-            min-height: 120px;
+            min-height: 132px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #d9d0ff 0%, #8571ff 100%);
+            background: linear-gradient(135deg, #1f2937 0%, #7c3aed 100%);
             position: relative;
             overflow: hidden;
         }
@@ -243,7 +250,7 @@
             content: '';
             position: absolute;
             border-radius: 999px;
-            background: rgba(255,255,255,0.65);
+            background: rgba(255,255,255,0.14);
         }
 
         .hero-hero-visual::before {
@@ -252,13 +259,13 @@
             right: -44px;
             bottom: -78px;
         }
-
+        
         .hero-hero-visual::after {
             width: 72px;
             height: 72px;
             left: 18px;
             top: 18px;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .hero-title {
@@ -266,11 +273,11 @@
             font-size: 1.8rem;
             line-height: 0.92;
             letter-spacing: 0.03em;
-            color: #121212;
+            color: #f8fafc;
         }
 
         .hero-copy {
-            color: #5f6472;
+            color: #94a3b8;
             font-size: 0.76rem;
             line-height: 1.5;
             font-weight: 500;
@@ -280,12 +287,12 @@
             width: 30px;
             height: 30px;
             border-radius: 999px;
-            background: #f4f1ff;
-            color: #8571ff;
+            background: rgba(255,255,255,0.07);
+            color: #e2e8f0;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(133,113,255,0.12);
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         .hero-metrics {
@@ -295,8 +302,8 @@
         }
 
         .hero-metric {
-            background: #faf8ff;
-            border: 1px solid rgba(133,113,255,0.10);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 16px;
             padding: 9px 6px;
             text-align: center;
@@ -304,13 +311,13 @@
 
         .hero-metric strong {
             display: block;
-            color: #121212;
+            color: #f8fafc;
             font-size: 0.96rem;
         }
 
         .hero-metric span {
             display: block;
-            color: #838395;
+            color: #94a3b8;
             font-size: 0.58rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -325,11 +332,11 @@
         }
 
         .hero-product-mini {
-            background: rgba(255,255,255,0.96);
-            border: 1px solid rgba(133,113,255,0.10);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             padding: 10px;
-            box-shadow: 0 8px 18px rgba(133,113,255,0.06);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.14);
         }
 
         .hero-thumb {
@@ -341,26 +348,26 @@
         }
 
         .hero-thumb--lavender {
-            background: linear-gradient(135deg, #e8e2ff 0%, #b59fff 100%);
+            background: linear-gradient(135deg, #6d5df6 0%, #312e81 100%);
         }
 
         .hero-thumb--sand {
-            background: linear-gradient(135deg, #f7e5d3 0%, #e2b98f 100%);
+            background: linear-gradient(135deg, #f59e0b 0%, #78350f 100%);
         }
 
         .hero-thumb--mint {
-            background: linear-gradient(135deg, #dcf5ec 0%, #7cd5b2 100%);
+            background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);
         }
 
         .hero-thumb--dark {
-            background: linear-gradient(135deg, #3b364d 0%, #17141f 100%);
+            background: linear-gradient(135deg, #374151 0%, #111827 100%);
         }
 
         .hero-thumb::before,
         .hero-thumb::after {
             content: '';
             position: absolute;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.18);
         }
 
         .hero-thumb::before {
@@ -382,27 +389,21 @@
         .hero-mini-name {
             font-size: 0.72rem;
             font-weight: 700;
-            color: #171717;
+            color: #f8fafc;
             line-height: 1.3;
         }
 
         .hero-mini-price {
             font-size: 0.72rem;
-            color: #8571ff;
+            color: #c8bdff;
             font-weight: 700;
             margin-top: 4px;
-        }
-
-        .hero-product-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
         }
 
         .hero-product-gallery {
             min-height: 150px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #e9e2ff 0%, #c8bbff 100%);
+            background: linear-gradient(135deg, #111827 0%, #2563eb 100%);
             position: relative;
             overflow: hidden;
         }
@@ -413,11 +414,11 @@
             width: 90px;
             height: 150px;
             border-radius: 30px;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.18);
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%) rotate(-12deg);
-            box-shadow: 24px -6px 0 rgba(255,255,255,0.4), -28px 20px 0 rgba(255,255,255,0.22);
+            box-shadow: 24px -6px 0 rgba(255,255,255,0.12), -28px 20px 0 rgba(255,255,255,0.08);
         }
 
         .hero-swatches {
@@ -430,8 +431,8 @@
             width: 14px;
             height: 14px;
             border-radius: 999px;
-            border: 2px solid #fff;
-            box-shadow: 0 0 0 1px rgba(17,17,17,0.08);
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
         }
 
         .hero-feature-list {
@@ -448,10 +449,10 @@
             gap: 8px;
             padding: 10px 12px;
             border-radius: 14px;
-            background: #fbfaff;
-            border: 1px solid rgba(133,113,255,0.08);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.07);
             font-size: 0.72rem;
-            color: #222;
+            color: #e5e7eb;
             font-weight: 600;
         }
 
@@ -461,7 +462,7 @@
             gap: 10px;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid rgba(17,17,17,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .hero-cart-row:last-child {
@@ -484,18 +485,18 @@
             border-radius: 999px;
             right: -6px;
             bottom: -8px;
-            background: rgba(255,255,255,0.65);
+            background: rgba(255,255,255,0.18);
         }
 
         .hero-cart-meta {
             font-size: 0.68rem;
-            color: #6d6d7a;
+            color: #94a3b8;
             line-height: 1.35;
         }
 
         .hero-total-box {
-            background: linear-gradient(180deg, #faf8ff 0%, #f3efff 100%);
-            border: 1px solid rgba(133,113,255,0.12);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.05) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             padding: 12px;
         }
@@ -508,41 +509,60 @@
             width: 100%;
             padding: 12px;
             border-radius: 16px;
-            background: #8571ff;
+            background: linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%);
             color: #fff;
             font-weight: 700;
             font-size: 0.78rem;
             margin-top: 10px;
         }
 
-        .hero-page-dots {
+        .hero-slider-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 2px;
+        }
+
+        .hero-slider-dots {
             display: flex;
             justify-content: center;
             gap: 6px;
-            margin-top: auto;
-            padding-bottom: 4px;
         }
 
-        .hero-page-dots span {
+        .hero-slider-dots button {
             width: 7px;
             height: 7px;
             border-radius: 999px;
-            background: rgba(133,113,255,0.2);
+            background: rgba(255,255,255,0.22);
+            border: none;
+            transition: all 0.3s ease;
         }
 
-        .hero-page-home .hero-page-dots span:nth-child(1),
-        .hero-page-product .hero-page-dots span:nth-child(2),
-        .hero-page-cart .hero-page-dots span:nth-child(3) {
-            background: #8571ff;
-            width: 18px;
+        .hero-slider-dots button.is-active {
+            width: 20px;
+            background: #8b5cf6;
+        }
+
+        .hero-slider-arrow {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.07);
+            color: #f8fafc;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-phone-shadow {
             position: absolute;
-            bottom: 10px;
-            width: 260px;
-            height: 44px;
-            background: radial-gradient(circle, rgba(17,17,17,0.18) 0%, rgba(17,17,17,0.08) 45%, rgba(17,17,17,0) 76%);
+            bottom: 8px;
+            width: 270px;
+            height: 48px;
+            background: radial-gradient(circle, rgba(17,17,17,0.2) 0%, rgba(17,17,17,0.08) 45%, rgba(17,17,17,0) 76%);
             filter: blur(10px);
             animation: shadowFloat 4.8s ease-in-out infinite;
         }
@@ -555,13 +575,6 @@
         @keyframes shadowFloat {
             0%, 100% { transform: scaleX(1) translateY(0); opacity: 0.85; }
             50% { transform: scaleX(0.92) translateY(8px); opacity: 0.6; }
-        }
-
-        @keyframes shopifyPages {
-            0%, 26% { transform: translateY(0%); }
-            33%, 58% { transform: translateY(-100%); }
-            66%, 91% { transform: translateY(-200%); }
-            100% { transform: translateY(-200%); }
         }
 
         .timeline-line {
@@ -664,131 +677,137 @@
                         <div class="hero-phone-shadow"></div>
                         <div class="hero-phone">
                             <div class="hero-phone-screen">
-                                <div class="hero-screen-pages">
+                                <div class="hero-screen-track" id="hero-screen-track">
                                     <div class="hero-page hero-page-home">
                                         <div class="hero-topbar">
                                             <div class="hero-brand">ASCEND</div>
-                                            <div class="flex items-center gap-2 text-[#8571ff]">
+                                            <div class="flex items-center gap-2 text-slate-100">
                                                 <span class="hero-icon-btn"><i data-lucide="search" class="w-3.5 h-3.5"></i></span>
                                                 <span class="hero-icon-btn"><i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i></span>
                                             </div>
                                         </div>
-                                        <div class="hero-page-label"><i data-lucide="layout-template" class="w-3 h-3"></i> Home page</div>
+                                        <div class="hero-page-label"><i data-lucide="layout-template" class="w-3 h-3"></i> Accueil</div>
                                         <div class="hero-card">
                                             <div class="hero-hero-visual"></div>
-                                            <div class="hero-title mt-4">DROP 24<br>ESSENTIALS</div>
-                                            <p class="hero-copy mt-2">Landing minimaliste type Shopify avec hero, collection phare et proposition de valeur claire.</p>
+                                            <div class="hero-title mt-4">DROP 24<br>MONOCHROME</div>
+                                            <p class="hero-copy mt-2">Mockup plus premium et plus éditorial que le site principal, pensé comme une vraie interface mobile e-commerce.</p>
                                             <div class="hero-metrics mt-4">
                                                 <div class="hero-metric"><strong>24h</strong><span>Shipping</span></div>
                                                 <div class="hero-metric"><strong>4.9</strong><span>Reviews</span></div>
-                                                <div class="hero-metric"><strong>New</strong><span>Drop</span></div>
+                                                <div class="hero-metric"><strong>Live</strong><span>Stock</span></div>
                                             </div>
                                         </div>
                                         <div class="hero-card">
                                             <div class="flex items-center justify-between mb-3">
-                                                <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">Collections</div>
-                                                <div class="text-[11px] text-gray-400 font-semibold">Voir tout</div>
+                                                <div class="text-[11px] uppercase tracking-[0.18em] text-violet-300 font-bold">Sélection</div>
+                                                <div class="text-[11px] text-slate-500 font-semibold">Voir plus</div>
                                             </div>
                                             <div class="hero-collection-grid">
                                                 <div class="hero-product-mini">
                                                     <div class="hero-thumb hero-thumb--lavender"></div>
-                                                    <div class="hero-mini-name">Daily Cream</div>
-                                                    <div class="hero-mini-price">49€</div>
+                                                    <div class="hero-mini-name">Edge Jacket</div>
+                                                    <div class="hero-mini-price">129€</div>
                                                 </div>
                                                 <div class="hero-product-mini">
-                                                    <div class="hero-thumb hero-thumb--sand"></div>
-                                                    <div class="hero-mini-name">Glow Serum</div>
-                                                    <div class="hero-mini-price">59€</div>
+                                                    <div class="hero-thumb hero-thumb--dark"></div>
+                                                    <div class="hero-mini-name">Studio Pack</div>
+                                                    <div class="hero-mini-price">89€</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="hero-page-dots"><span></span><span></span><span></span></div>
                                     </div>
 
                                     <div class="hero-page hero-page-product">
                                         <div class="hero-topbar">
-                                            <div class="flex items-center gap-2 text-[#8571ff]"><span class="hero-icon-btn"><i data-lucide="chevron-left" class="w-3.5 h-3.5"></i></span></div>
+                                            <div class="flex items-center gap-2 text-slate-100"><span class="hero-icon-btn"><i data-lucide="chevron-left" class="w-3.5 h-3.5"></i></span></div>
                                             <div class="hero-brand">PRODUCT</div>
-                                            <div class="flex items-center gap-2 text-[#8571ff]"><span class="hero-icon-btn"><i data-lucide="heart" class="w-3.5 h-3.5"></i></span></div>
+                                            <div class="flex items-center gap-2 text-slate-100"><span class="hero-icon-btn"><i data-lucide="heart" class="w-3.5 h-3.5"></i></span></div>
                                         </div>
-                                        <div class="hero-page-label"><i data-lucide="package" class="w-3 h-3"></i> Product page</div>
+                                        <div class="hero-page-label"><i data-lucide="package" class="w-3 h-3"></i> Page produit</div>
                                         <div class="hero-card">
                                             <div class="hero-product-gallery"></div>
-                                            <div class="hero-title mt-4">RADIANT<br>SKIN KIT</div>
+                                            <div class="hero-title mt-4">NOVA<br>RUNNER</div>
                                             <div class="flex items-end justify-between mt-2">
-                                                <div class="text-xl font-bold text-[#111]">89€</div>
-                                                <div class="text-[11px] text-primary font-bold uppercase tracking-[0.16em]">Best seller</div>
+                                                <div class="text-xl font-bold text-slate-50">149€</div>
+                                                <div class="text-[11px] text-violet-300 font-bold uppercase tracking-[0.16em]">Limited</div>
                                             </div>
-                                            <p class="hero-copy mt-2">Page produit classique avec galerie, bénéfices, variantes et CTA d'ajout au panier.</p>
+                                            <p class="hero-copy mt-2">Fiche produit immersive avec galerie héro, variations couleur et bénéfices lisibles sans scroll vertical.</p>
                                             <div class="hero-swatches">
-                                                <span style="background:#efe3cf"></span>
-                                                <span style="background:#d9d0ff"></span>
-                                                <span style="background:#ccebdd"></span>
-                                                <span style="background:#2c2936"></span>
+                                                <span style="background:#f1f5f9"></span>
+                                                <span style="background:#8b5cf6"></span>
+                                                <span style="background:#10b981"></span>
+                                                <span style="background:#111827"></span>
                                             </div>
                                             <div class="hero-feature-list">
-                                                <div class="hero-feature-item"><span>✓ Livraison offerte dès 80€</span><span>24h</span></div>
-                                                <div class="hero-feature-item"><span>✓ Retour sous 14 jours</span><span>Easy</span></div>
-                                                <div class="hero-feature-item"><span>✓ Bundle upsell actif</span><span>+12%</span></div>
+                                                <div class="hero-feature-item"><span>✓ Livraison offerte</span><span>EU</span></div>
+                                                <div class="hero-feature-item"><span>✓ Paiement en 3x</span><span>Flex</span></div>
+                                                <div class="hero-feature-item"><span>✓ Cross-sell smart</span><span>+18%</span></div>
                                             </div>
                                         </div>
-                                        <div class="hero-page-dots"><span></span><span></span><span></span></div>
                                     </div>
 
                                     <div class="hero-page hero-page-cart">
                                         <div class="hero-topbar">
                                             <div class="hero-brand">CART</div>
-                                            <div class="flex items-center gap-2 text-[#8571ff]"><span class="hero-icon-btn"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i></span></div>
+                                            <div class="flex items-center gap-2 text-slate-100"><span class="hero-icon-btn"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i></span></div>
                                         </div>
                                         <div class="hero-page-label"><i data-lucide="shopping-cart" class="w-3 h-3"></i> Panier</div>
                                         <div class="hero-card">
                                             <div class="hero-cart-row">
                                                 <div class="hero-cart-thumb hero-thumb--lavender"></div>
                                                 <div>
-                                                    <div class="text-[0.74rem] font-bold text-[#111]">Daily Cream</div>
-                                                    <div class="hero-cart-meta">50ml · Qty 1</div>
+                                                    <div class="text-[0.74rem] font-bold text-slate-50">Nova Runner</div>
+                                                    <div class="hero-cart-meta">Black · Qty 1</div>
                                                 </div>
-                                                <div class="text-[0.74rem] font-bold text-primary">49€</div>
+                                                <div class="text-[0.74rem] font-bold text-violet-300">149€</div>
                                             </div>
                                             <div class="hero-cart-row">
                                                 <div class="hero-cart-thumb hero-thumb--mint"></div>
                                                 <div>
-                                                    <div class="text-[0.74rem] font-bold text-[#111]">Cleanser Gel</div>
-                                                    <div class="hero-cart-meta">Pack duo · Qty 1</div>
+                                                    <div class="text-[0.74rem] font-bold text-slate-50">Travel Bag</div>
+                                                    <div class="hero-cart-meta">Addon · Qty 1</div>
                                                 </div>
-                                                <div class="text-[0.74rem] font-bold text-primary">32€</div>
+                                                <div class="text-[0.74rem] font-bold text-violet-300">39€</div>
                                             </div>
                                         </div>
                                         <div class="hero-total-box">
-                                            <div class="flex items-center justify-between text-[0.74rem] text-gray-500 font-semibold">
+                                            <div class="flex items-center justify-between text-[0.74rem] text-slate-400 font-semibold">
                                                 <span>Sous-total</span>
-                                                <span>81€</span>
+                                                <span>188€</span>
                                             </div>
-                                            <div class="flex items-center justify-between text-[0.74rem] text-gray-500 font-semibold mt-2">
+                                            <div class="flex items-center justify-between text-[0.74rem] text-slate-400 font-semibold mt-2">
                                                 <span>Livraison</span>
                                                 <span>Offerte</span>
                                             </div>
-                                            <div class="flex items-center justify-between text-sm text-[#111] font-bold mt-4">
+                                            <div class="flex items-center justify-between text-sm text-slate-50 font-bold mt-4">
                                                 <span>Total</span>
-                                                <span>81€</span>
+                                                <span>188€</span>
                                             </div>
                                             <div class="hero-checkout-btn"><i data-lucide="lock" class="w-4 h-4"></i> Passer au paiement</div>
                                         </div>
                                         <div class="hero-card">
-                                            <div class="text-[11px] uppercase tracking-[0.18em] text-primary font-bold">Upsell</div>
+                                            <div class="text-[11px] uppercase tracking-[0.18em] text-violet-300 font-bold">Upsell</div>
                                             <div class="flex items-center justify-between mt-3">
                                                 <div>
-                                                    <div class="text-[0.74rem] font-bold text-[#111]">Mini Travel Set</div>
+                                                    <div class="text-[0.74rem] font-bold text-slate-50">Care Kit</div>
                                                     <div class="hero-cart-meta">Ajout 1 clic dans le panier</div>
                                                 </div>
-                                                <div class="text-[0.74rem] font-bold text-primary">+19€</div>
+                                                <div class="text-[0.74rem] font-bold text-violet-300">+19€</div>
                                             </div>
                                         </div>
-                                        <div class="hero-page-dots"><span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="hero-slider-nav absolute left-1/2 -translate-x-1/2 bottom-0 w-[280px] z-20">
+                        <button class="hero-slider-arrow" id="hero-prev" aria-label="Voir la page précédente"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>
+                        <div class="hero-slider-dots" id="hero-dots">
+                            <button class="is-active" data-index="0" aria-label="Voir la page accueil"></button>
+                            <button data-index="1" aria-label="Voir la page produit"></button>
+                            <button data-index="2" aria-label="Voir la page panier"></button>
+                        </div>
+                        <button class="hero-slider-arrow" id="hero-next" aria-label="Voir la page suivante"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
                     </div>
                 </div>
             </div>
@@ -1073,6 +1092,44 @@
         if (carousel && prev && next) {
             prev.addEventListener('click', () => carousel.scrollBy({ left: -380, behavior: 'smooth' }));
             next.addEventListener('click', () => carousel.scrollBy({ left: 380, behavior: 'smooth' }));
+        }
+
+        const heroTrack = document.getElementById('hero-screen-track');
+        const heroPrev = document.getElementById('hero-prev');
+        const heroNext = document.getElementById('hero-next');
+        const heroDots = document.querySelectorAll('#hero-dots button');
+        let heroIndex = 0;
+        let heroAuto;
+
+        function updateHeroSlider(index) {
+            if (!heroTrack) return;
+            heroIndex = (index + 3) % 3;
+            heroTrack.style.transform = `translateX(-${heroIndex * 33.3333}%)`;
+            heroDots.forEach((dot, i) => dot.classList.toggle('is-active', i === heroIndex));
+        }
+
+        function restartHeroAuto() {
+            clearInterval(heroAuto);
+            heroAuto = setInterval(() => updateHeroSlider(heroIndex + 1), 3200);
+        }
+
+        if (heroTrack && heroPrev && heroNext && heroDots.length) {
+            heroPrev.addEventListener('click', () => {
+                updateHeroSlider(heroIndex - 1);
+                restartHeroAuto();
+            });
+            heroNext.addEventListener('click', () => {
+                updateHeroSlider(heroIndex + 1);
+                restartHeroAuto();
+            });
+            heroDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    updateHeroSlider(Number(dot.dataset.index));
+                    restartHeroAuto();
+                });
+            });
+            updateHeroSlider(0);
+            restartHeroAuto();
         }
 
         window.addEventListener('scroll', () => {
