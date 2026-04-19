@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tha Ascend - Agence d'ingénierie e-commerce</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
@@ -13,7 +13,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
+                        heading: ['Bebas Neue', 'sans-serif'],
                     },
                     colors: {
                         primary: '#8571ff',
@@ -38,6 +38,10 @@
             overflow-x: hidden;
         }
 
+        .font-heading {
+            letter-spacing: 0.02em;
+        }
+
         .text-outline-gray,
         .text-outline-purple,
         .text-outline-purple-hollow,
@@ -48,6 +52,7 @@
             -webkit-font-smoothing: antialiased;
             text-rendering: geometricPrecision;
             text-shadow: none;
+            -webkit-text-fill-color: transparent;
         }
 
         .text-outline-gray {
@@ -151,7 +156,7 @@
         <nav class="max-w-7xl mx-auto bg-white rounded-full px-6 py-3 flex items-center justify-between border border-gray-200 shadow-sm relative z-20">
             <div class="flex items-center gap-3">
                 <div class="w-2 h-2 rounded-full bg-primary"></div>
-                <div class="font-heading font-black text-2xl tracking-tight">THA ASCEND</div>
+                <div class="font-heading text-2xl tracking-tight">THA ASCEND</div>
             </div>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="#architectures" class="flex items-center gap-1 border border-gray-200 rounded-full px-4 py-1.5 hover:bg-gray-50">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
@@ -178,7 +183,7 @@
             <div class="flex flex-col md:flex-row items-start justify-between gap-12">
                 <div class="max-w-3xl reveal">
                     <p class="text-primary font-bold tracking-wider text-sm md:text-base mb-4 uppercase">Agence d'ingénierie e-commerce premium</p>
-                    <h1 class="font-heading font-black text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-outline-purple mb-6">
+                    <h1 class="font-heading text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-outline-purple mb-6">
                         ON NE VEND PAS<br>DE SIMPLES THÈMES
                     </h1>
                     <p class="text-gray-700 text-lg max-w-xl font-medium leading-relaxed mb-8">
@@ -207,7 +212,7 @@
     </div>
 
     <section id="architectures" class="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-20 reveal">
-        <h2 class="font-heading font-black text-4xl md:text-5xl lg:text-6xl uppercase leading-tight">
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl uppercase leading-tight">
             <span class="text-outline-gray">VOS ARCHITECTURES SUR-MESURE</span><br>
             <span class="text-outline-gray">POUR </span><span class="text-filled-purple-3d">SCALER VITE</span>
         </h2>
@@ -215,22 +220,22 @@
 
     <section class="max-w-7xl mx-auto px-4 md:px-8 mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
         <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
-            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">X</div>
-            <h3 class="font-heading font-bold text-2xl mb-2">BORN X</h3>
+            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading text-xl mb-6">X</div>
+            <h3 class="font-heading text-2xl mb-2">BORN X</h3>
             <p class="text-primary font-bold text-sm mb-4">La Fondation (400€)</p>
             <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Idéal pour se lancer. Inclut 3 pages sur-mesure, design responsive, intégration paiement/hébergement, et formulaire basique. (0 plugin offert).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
         <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
-            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">Y</div>
-            <h3 class="font-heading font-bold text-2xl mb-2">EVOLVE Y</h3>
+            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading text-xl mb-6">Y</div>
+            <h3 class="font-heading text-2xl mb-2">EVOLVE Y</h3>
             <p class="text-primary font-bold text-sm mb-4">Le Standard (990€)</p>
             <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour les marques qui scalent. 5 pages, maquettage UI sur Figma, mise en ligne du contenu, sections produits personnalisées. (2 plugins offerts).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
         </div>
         <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-soft transition-shadow flex flex-col h-full reveal">
-            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6">Z</div>
-            <h3 class="font-heading font-bold text-2xl mb-2">ASCEND Z</h3>
+            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-heading text-xl mb-6">Z</div>
+            <h3 class="font-heading text-2xl mb-2">ASCEND Z</h3>
             <p class="text-primary font-bold text-sm mb-4">L'Écosystème (1800€)</p>
             <div class="text-gray-600 mb-8 flex-grow text-sm space-y-2">Pour des performances extrêmes. 10 pages, optimisation de la vitesse max, Shopify OS 2.0, configuration d'apps tierces. (4 plugins offerts).</div>
             <a href="#contact" class="inline-flex items-center justify-between border border-gray-300 rounded-full px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors w-fit">Sélectionner <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2"></i></a>
@@ -241,7 +246,7 @@
         <div class="absolute -top-10 -left-6 w-16 h-16 bg-white border border-gray-200 rounded-full flex items-center justify-center z-10 shadow-sm">
             <span class="text-xs font-bold text-primary text-center leading-tight">100%<br>Proprio</span>
         </div>
-        <div class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 font-heading font-bold text-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 font-heading text-2xl">
             <div class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-8 h-8"></i> Shopify Plus</div>
             <div class="flex items-center gap-2"><i data-lucide="figma" class="w-8 h-8"></i> Figma</div>
             <div class="border border-gray-400 px-4 py-2 font-serif text-sm tracking-widest uppercase">Web Vitals</div>
@@ -252,15 +257,15 @@
 
     <section class="max-w-7xl mx-auto px-4 md:px-8 mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10 reveal">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4 counter" data-target="22">0</h3>
+            <h3 class="font-heading text-6xl text-outline-purple-hollow mb-4 counter" data-target="22">0</h3>
             <p class="font-medium text-gray-800 text-lg">Modules d'intégration<br>dans notre catalogue</p>
         </div>
         <div class="bg-gradient-to-br from-white to-primary-light rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/20 reveal">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4 counter" data-target="3">0</h3>
+            <h3 class="font-heading text-6xl text-outline-purple-hollow mb-4 counter" data-target="3">0</h3>
             <p class="font-medium text-gray-800 text-lg">Niveaux d'expertise<br>pour vos plugins</p>
         </div>
         <div class="bg-white rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-soft border border-primary/10 reveal">
-            <h3 class="font-heading font-black text-6xl text-outline-purple-hollow mb-4">100%</h3>
+            <h3 class="font-heading text-6xl text-outline-purple-hollow mb-4">100%</h3>
             <p class="font-medium text-gray-800 text-lg">Propriétaire de<br>votre code à vie</p>
         </div>
     </section>
@@ -273,7 +278,7 @@
             </div>
         </div>
         <div class="reveal">
-            <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-8">
+            <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-8">
                 <span class="text-outline-gray">L'ÉQUIVALENT D'UN</span><br>
                 <span class="text-outline-gray">CABINET D'ARCHITECTES</span><br>
                 <span class="text-filled-purple-3d">POUR LE E-COMMERCE</span>
@@ -285,7 +290,7 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
-        <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-12">
+        <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-12">
             <span class="text-outline-gray">BEYOND THE BOX: NOS</span><br>
             <span class="text-outline-gray">AUTRES </span><span class="text-filled-purple-3d">EXPERTISES</span>
         </h2>
@@ -314,7 +319,7 @@
     </section>
 
     <section id="plugins" class="max-w-7xl mx-auto px-4 md:px-8 mt-32 reveal">
-        <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-6 text-center md:text-left">
+        <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-6 text-center md:text-left">
             <span class="text-outline-gray">LE HUB D'INTÉGRATIONS</span><br>
             <span class="text-filled-purple-3d">VOS 22 PLUGINS</span>
         </h2>
@@ -322,17 +327,17 @@
         <div class="relative max-w-5xl mx-auto">
             <div class="timeline-line hidden md:block"></div>
             <div class="flex flex-col md:flex-row items-center justify-between mb-20 relative z-10">
-                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">1</span><div><h3 class="font-bold text-xl">Niveau 1</h3><p class="text-gray-600">Les Essentiels</p></div></div></div>
+                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading">1</span><div><h3 class="font-bold text-xl">Niveau 1</h3><p class="text-gray-600">Les Essentiels</p></div></div></div>
                 <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium"><strong class="text-black">Pop-up d'acquisition</strong>, <strong class="text-black">Panier tiroir</strong>, <strong class="text-black">Barre de livraison</strong>, <strong class="text-black">Fil d'Ariane</strong> et <strong class="text-black">Lightbox</strong> optimisée.</div>
             </div>
             <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-20 relative z-10">
-                <div class="w-full md:w-[45%] flex justify-start"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">2</span><div><h3 class="font-bold text-xl">Niveau 2</h3><p class="text-gray-600">Les Avancés</p></div></div></div>
+                <div class="w-full md:w-[45%] flex justify-start"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading">2</span><div><h3 class="font-bold text-xl">Niveau 2</h3><p class="text-gray-600">Les Avancés</p></div></div></div>
                 <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium md:text-right"><strong class="text-black">Cross-selling</strong>, <strong class="text-black">Filtres de collection</strong>, <strong class="text-black">Préchargement</strong>, <strong class="text-black">Custom Reviews</strong> et <strong class="text-black">Upsell post-achat</strong>.</div>
             </div>
             <div class="flex flex-col md:flex-row items-center justify-between relative z-10">
-                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading font-black">3</span><div><h3 class="font-bold text-xl">Niveau 3</h3><p class="text-gray-600">Le Premium</p></div></div></div>
+                <div class="w-full md:w-[45%] flex justify-end"><div class="bg-white rounded-2xl p-6 border border-primary/30 shadow-solid flex items-center gap-6 w-full max-w-sm"><span class="text-outline-gray text-6xl font-heading">3</span><div><h3 class="font-bold text-xl">Niveau 3</h3><p class="text-gray-600">Le Premium</p></div></div></div>
                 <div class="hidden md:flex w-10 h-10 bg-white border-2 border-primary rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 <div class="w-full md:w-[45%] mt-6 md:mt-0 text-sm leading-relaxed text-gray-700 font-medium"><strong class="text-black">Chatbot IA</strong>, <strong class="text-black">Recherche prédictive</strong>, <strong class="text-black">Wishlist & Alertes</strong>, <strong class="text-black">Gamification</strong> et <strong class="text-black">Social proof</strong>.</div>
             </div>
@@ -340,7 +345,7 @@
     </section>
 
     <section class="bg-[#111] mt-32 relative overflow-hidden py-24 reveal">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] font-heading font-black text-outline-dark opacity-50 pointer-events-none select-none z-0 tracking-tighter w-full text-center">INSIGHTS</div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] font-heading text-outline-dark opacity-50 pointer-events-none select-none z-0 tracking-tighter w-full text-center">INSIGHTS</div>
         <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12">
             <div class="relative w-64 h-64 md:w-80 md:h-80">
                 <div class="absolute -top-12 -right-4 bg-white text-black text-xs font-bold p-3 rounded-2xl rounded-bl-none shadow-lg max-w-[150px] transform rotate-3"><span class="text-lg font-black block mb-1">PERF !</span>CHAQUE SECONDE DE GAGNÉE AUGMENTE VOS CONVERSIONS.</div>
@@ -352,7 +357,7 @@
                     <i data-lucide="code" class="absolute top-4 left-4 w-4 h-4 text-gray-400"></i>
                     <i data-lucide="bar-chart" class="absolute bottom-4 right-4 w-4 h-4 text-gray-400"></i>
                 </div>
-                <div class="w-3/5 p-6"><span class="inline-block bg-primary-light text-primary text-[10px] font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Tech Update</span><h3 class="font-heading font-black text-lg leading-tight">L'impact des Core Web Vitals sur vos ventes Shopify</h3></div>
+                <div class="w-3/5 p-6"><span class="inline-block bg-primary-light text-primary text-[10px] font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Tech Update</span><h3 class="font-heading text-lg leading-tight">L'impact des Core Web Vitals sur vos ventes Shopify</h3></div>
             </div>
         </div>
     </section>
@@ -376,7 +381,7 @@
             <div class="text-xs text-gray-500">Évaluation <strong class="text-black">4.9</strong> sur 5, basée sur <strong class="text-black">42 avis vérifiés</strong></div>
         </div>
         <div>
-            <h2 class="font-heading font-black text-4xl md:text-5xl uppercase leading-tight mb-8">
+            <h2 class="font-heading text-4xl md:text-5xl uppercase leading-tight mb-8">
                 <span class="text-outline-gray">PAYEZ UNE FOIS,</span><br>
                 <span class="text-outline-gray">POSSÉDEZ VOTRE</span><br>
                 <span class="text-filled-purple-3d">CODE À VIE</span>
@@ -395,7 +400,7 @@
     <footer class="bg-primary-light/50 border-t border-primary/10 pt-16">
         <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div>
-                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Architectures</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Architectures</h4>
                 <ul class="space-y-3 text-sm text-gray-700">
                     <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait BORN X</a></li>
                     <li><a href="#architectures" class="hover:text-primary flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Forfait EVOLVE Y</a></li>
@@ -403,14 +408,14 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Contactez-nous</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Contactez-nous</h4>
                 <ul class="space-y-4 text-sm text-gray-700">
                     <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> build@thaascend.com</li>
                     <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-gray-400 mt-1"></i> <span>Agence 100% Remote<br>Intervention Monde</span></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-heading font-bold text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Accès Privé</h4>
+                <h4 class="font-heading text-lg mb-6 border-b border-primary/20 pb-2 inline-block">Accès Privé</h4>
                 <form class="space-y-3">
                     <input type="text" placeholder="Prénom" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
                     <input type="email" placeholder="Email (Pour astuces CRO)" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary text-sm">
