@@ -86,7 +86,10 @@
 
         .header-shell {
             background: rgba(248, 247, 255, 0.96);
-            border: 1px solid rgba(17, 17, 17, 0.18);
+            border-top: 0;
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            border-left: 1px solid #000000;
             border-radius: 0;
             min-height: 82px;
             padding: 0;
@@ -94,12 +97,13 @@
             top: 0;
             z-index: 60;
             backdrop-filter: blur(12px);
+            width: 100%;
         }
 
         .header-divider {
             width: 1px;
             align-self: stretch;
-            background: rgba(17, 17, 17, 0.18);
+            background: #000000;
         }
 
         .header-lang {
@@ -730,8 +734,8 @@
 
         @media (max-width: 767px) {
             .header-shell {
-                border-radius: 24px;
-                margin-top: 0.5rem;
+                border-radius: 0;
+                margin-top: 0;
                 padding: 0.8rem 1rem;
                 min-height: auto;
             }
@@ -755,9 +759,9 @@
     </style>
 </head>
 <body class="antialiased">
-    <div class="bg-hero-gradient pt-4 md:pt-6 pb-20 px-4 md:px-8 relative overflow-hidden">
-        <nav class="max-w-[1440px] mx-auto header-shell relative z-20">
-            <div class="hidden md:flex items-center justify-between min-h-[82px]">
+    <div class="bg-hero-gradient pt-0 pb-20 px-0 relative overflow-hidden">
+        <nav class="w-full header-shell relative z-20">
+            <div class="hidden md:flex items-center justify-between min-h-[82px] max-w-[1440px] mx-auto">
                 <div class="flex items-center h-full">
                     <button class="header-lang header-lang-desktop flex items-center gap-1 px-8 h-[82px]" aria-label="Changer la langue">
                         FR <i data-lucide="chevron-down" class="w-4 h-4"></i>
@@ -770,6 +774,7 @@
                             <span>ASCEND</span>
                         </div>
                     </a>
+                    <div class="header-divider"></div>
                 </div>
 
                 <div class="flex items-center gap-4 px-6 header-desktop">
@@ -800,8 +805,8 @@
                 </button>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden max-w-[1440px] mx-auto mt-3 bg-white rounded-[1.5rem] border border-gray-200 shadow-sm p-4 md:hidden">
-            <div class="flex flex-col gap-3 text-sm font-medium">
+        <div id="mobile-menu" class="hidden w-full mt-0 bg-white border-x border-b border-black shadow-sm p-4 md:hidden">
+            <div class="max-w-[1440px] mx-auto flex flex-col gap-3 text-sm font-medium px-4">
                 <a href="#architectures" class="header-pill !justify-between">Architectures <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
                 <a href="#plugins" class="header-pill !justify-between">Hub Plugins</a>
                 <a href="#expertises" class="header-pill !justify-between">Expertises</a>
@@ -809,7 +814,7 @@
                 <a href="#contact" class="header-cta !justify-center mt-2">Démarrer un projet <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
             </div>
         </div>
-        <div id="top" class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10">
+        <div id="top" class="max-w-7xl mx-auto mt-16 md:mt-24 relative z-10 px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-start justify-between gap-12">
                 <div class="max-w-3xl reveal">
                     <p class="text-primary font-bold tracking-wider text-sm md:text-base mb-4 uppercase">Agence d'ingénierie e-commerce premium</p>
